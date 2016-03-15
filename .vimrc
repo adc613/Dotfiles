@@ -30,9 +30,6 @@ hi SpellBad ctermbg=White ctermfg=Red
 " allows me to copy and past outside of terminal
 set clipboard=unnamed
 
-" use the mouse with a 
-set mouse=a
-
 let mapleader = ","
 
 " move between pane using control keys and H,J,K,L 
@@ -57,32 +54,32 @@ vmap Q gq
 nmap Q gqap
 
 "Executes a package that allows easy installation VIM plugins easily
-execute pathogen#infect()
+" execute pathogen#infect()
 
 " Short to open NERDTree
-map <C-f>  :NERDTree<cr>
+" map <C-f>  :NERDTree<cr>
 
 nnoremap <CR> :noh
 
 "Syntastic recommended settings 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 
-let g:syntastic_html_tidy_exec = 'tidy5'
+" let g:syntastic_html_tidy_exec = 'tidy5'
 " Flake8 (PEP8) syntax linter
-autocmd FileType python map <buffer> <C-c> :call Flake8()<CR>
+" autocmd FileType python map <buffer> <C-c> :call Flake8()<CR>
 
 " Change indentation for html
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 
 " close tag for html
-autocmd FileType html let b:closetag_html_style=1
-autocmd FileType html source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
+" autocmd FileType html let b:closetag_html_style=1
+" autocmd FileType html source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
 
