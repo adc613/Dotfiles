@@ -1,6 +1,7 @@
 set shiftwidth=4 
 set softtabstop=4 
-set number "show line numbers
+set relativenumber " enables relative number
+set number " shows the number of the current line
 set autoindent "automatically indents
 set tabstop=4
 set expandtab
