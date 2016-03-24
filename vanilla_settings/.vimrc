@@ -15,7 +15,7 @@ set hlsearch "highlights search
 set incsearch "searches while typing
 
 " Spell checking
-setlocal spell spelllang=en_us
+autocmd FileType html setlocal spell spelllang=en_us
 
 " turns on highlighted syntax not sure what the other shit does
 filetype indent on
@@ -54,33 +54,5 @@ vnoremap > >gv
 vmap Q gq
 nmap Q gqap
 
-"Executes a package that allows easy installation VIM plugins easily
-" execute pathogen#infect()
-
-" Short to open NERDTree
-" map <C-f>  :NERDTree<cr>
-
+" Removes highlighting around searched words
 nnoremap <CR> :noh
-
-"Syntastic recommended settings 
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_python_python_exec = '/usr/local/bin/python3'
-
-" let g:syntastic_html_tidy_exec = 'tidy5'
-" Flake8 (PEP8) syntax linter
-" autocmd FileType python map <buffer> <C-c> :call Flake8()<CR>
-
-" Change indentation for html
-autocmd FileType html setlocal shiftwidth=2 tabstop=2
-
-" close tag for html
-" autocmd FileType html let b:closetag_html_style=1
-" autocmd FileType html source ~/.vim/bundle/closetag.vim/plugin/closetag.vim
-
