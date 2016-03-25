@@ -20,6 +20,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'suan/vim-instant-markdown'
 
 
 " All of your Plugins must be added before the following line
@@ -35,7 +37,7 @@ set expandtab
 set tw=79   "width of the document (used by GD)
 set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
-set colorcolumn=80
+set colorcolumn=80 " colors 80th collumn
 set ignorecase "ignore case in search
 set smartcase  "becomes case sensitive once you use a case 
 set hlsearch "highlights search
@@ -49,15 +51,12 @@ autocmd! bufwritepost .vimrc source %
 
 " Highlighting colors
 hi Search ctermbg=Cyan ctermfg=white
-hi Comment cterm=bold
+hi Comment cterm=bolet
 hi ErrorMsg ctermbg=White ctermfg=Red
 hi SpellBad ctermbg=White ctermfg=Red
 
 " allows me to copy and past outside of terminal
 set clipboard=unnamedplus
-
-" use the mouse with a 
-set mouse=a
 
 let mapleader = ","
 
@@ -172,3 +171,7 @@ set termencoding=utf-8
 
 " Color scheme in ~/.vim/colors/
 colorscheme mustang
+
+" markdown settings
+autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType markdown setlocal spell spelllang=en_us
