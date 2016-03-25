@@ -35,8 +35,7 @@ set expandtab
 set tw=79   "width of the document (used by GD)
 set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
-set colorcolumn=1000 " makes it way longer than it needs to be so that colorscheme takes up whole screen
-autocmd FileType python set colorcolumn=80
+set colorcolumn=80
 set ignorecase "ignore case in search
 set smartcase  "becomes case sensitive once you use a case 
 set hlsearch "highlights search
