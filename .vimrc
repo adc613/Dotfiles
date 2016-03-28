@@ -1,7 +1,6 @@
 " Adam Collins
 " adc613@gmail.com
 " Welcome to my beautiful and continually evolving .vimrc
-" Playing with fugitive
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
