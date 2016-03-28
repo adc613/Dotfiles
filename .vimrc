@@ -83,7 +83,7 @@ nmap Q gqap
 map <Leader>f  :NERDTreeToggle<cr>
 
 " remove search highlted words
-nnoremap <CR> :noh
+nnoremap <CR> :noh <cr>
 
 "Syntastic recommended settings 
 set statusline+=%#warningmsg#
