@@ -1,6 +1,7 @@
 " Adam Collins
 " adc613@gmail.com
 " Welcome to my beautiful and continually evolving .vimrc
+" Playing with fugitive
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -20,7 +21,7 @@ Plugin 'nvie/vim-flake8'                    " Python lynter
 Plugin 'rstacruz/sparkup'                   " Not sure what this does or how it got here
 Plugin 'scrooloose/nerdtree'                " File explorer 
 Plugin 'scrooloose/syntastic'               " Syntax lynter 
-Plugin 'tpope/vim-fugitive'                 " Don't remember 
+Plugin 'tpope/vim-fugitive'                 " Git integration
 Plugin 'tpope/vim-surround'                 " Allows easy surrounding of words and text in quotes and such 
 Plugin 'plasticboy/vim-markdown'            " Markdown plugin, not sure if it does anything
 Plugin 'godlygeek/tabular'                  " Don't know what this is or how it got here 
@@ -54,7 +55,7 @@ syntax on
 autocmd! bufwritepost .vimrc source %
 
 " allows me to copy and past outside of terminal
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 let mapleader = ","
 
@@ -80,7 +81,7 @@ vmap Q gq
 nmap Q gqap
 
 " Toggle NERDTree 
-map <Leader>  :NERDTreeToggle<cr>
+map <Leader>f  :NERDTreeToggle<cr>
 
 " remove search highlted words
 nnoremap <CR> :noh
@@ -175,7 +176,7 @@ autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType markdown setlocal spell spelllang=en_us
 
 " Ctrlp fuzzy file finder
-let g:ctrlp_map = '<Leader> t' " remaps CtrlP to leader p
+let g:ctrlp_map = '<C-c>' " remaps CtrlP to leader p
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'r' " sets the working diirectory to the nearest ancestor of current file that contains a .git directory 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] " excludes all files in .gitnignore
