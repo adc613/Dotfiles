@@ -26,6 +26,8 @@ Plugin 'plasticboy/vim-markdown'            " Markdown plugin, not sure if it do
 Plugin 'godlygeek/tabular'                  " Don't know what this is or how it got here 
 Plugin 'suan/vim-instant-markdown'          " Allows me to view my markdwon edits in chrome as it happens 
 Plugin 'ctrlpvim/ctrlp.vim'                 " Fuzzy file finder 
+Plugin 'tpope/vim-obsession'                " Maintains vim sessions through a system reboot
+Plugin 'simeji/winresizer'                  " Easy window resizing
 
 
 " All of your Plugins must be added before the following line
@@ -64,6 +66,11 @@ map <C-k> <c-w>k
 map <C-l> <c-w>l
 map <C-h> <c-w>h
 
+" resize panes
+nnoremap <silent> <Leader>+ :resize +5 <CR>
+nnoremap <silent> <Leader>= :resize -5 <CR>
+
+
 " move between tabs wit , M or N ( left and right respectively)
 map <C-n> <esc>:tabprevious<CR>
 map <C-m> <esc>:tabnext<CR>
@@ -81,6 +88,7 @@ nmap Q gqap
 
 " Toggle NERDTree 
 map <Leader>f  :NERDTreeToggle<cr>
+
 
 " remove search highlted words
 nnoremap <CR> :noh <cr>
@@ -179,4 +187,7 @@ let g:ctrlp_map = '<C-c>' " remaps CtrlP to leader p
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'r' " sets the working diirectory to the nearest ancestor of current file that contains a .git directory 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard'] " excludes all files in .gitnignore
+
+" winresizer plugin mapping
+let g:winresizer_start_key='<Leader>r'
 
