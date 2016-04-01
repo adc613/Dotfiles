@@ -22,8 +22,8 @@ Plugin 'scrooloose/nerdtree'                " File explorer
 Plugin 'scrooloose/syntastic'               " Syntax lynter 
 Plugin 'tpope/vim-fugitive'                 " Git integration
 Plugin 'tpope/vim-surround'                 " Allows easy surrounding of words and text in quotes and such 
-Plugin 'plasticboy/vim-markdown'            " Markdown plugin, not sure if it does anything
 Plugin 'godlygeek/tabular'                  " Don't know what this is or how it got here 
+Plugin 'plasticboy/vim-markdown'            " Markdown plugin, not sure if it does anything
 Plugin 'suan/vim-instant-markdown'          " Allows me to view my markdwon edits in chrome as it happens 
 Plugin 'ctrlpvim/ctrlp.vim'                 " Fuzzy file finder 
 Plugin 'tpope/vim-obsession'                " Maintains vim sessions through a system reboot
@@ -191,3 +191,8 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 " winresizer plugin mapping
 let g:winresizer_start_key='<Leader>r'
 
+" vim-mardown settings
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_no_default_key_mappings = 1
+let g:vim_markdown_math = 1
+let g:vim_markdown_new_list_item_indent = 2
