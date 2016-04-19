@@ -28,6 +28,9 @@ Plugin 'suan/vim-instant-markdown'          " Allows me to view my markdwon edit
 Plugin 'ctrlpvim/ctrlp.vim'                 " Fuzzy file finder 
 Plugin 'tpope/vim-obsession'                " Maintains vim sessions through a system reboot
 Plugin 'simeji/winresizer'                  " Easy window resizing
+Plugin 'jelera/vim-javascript-syntax'       " JavaScript syntax highlighting
+Plugin 'pangloss/vim-javascript'            " Javascript indenting
+Plugin 'nathanaelkane/vim-indent-guides'    " Javascript indenting
 
 
 " All of your Plugins must be added before the following line
@@ -148,6 +151,9 @@ autocmd FileType html setlocal spell spelllang=en_us
 let g:ycm_key_list_select_completion=['<C-j>']
 let g:ycm_key_list_previous_completion=['<C-k>']
 
+" removes all files from the black list for use in markdown
+let g:ycm_filetype_blacklist = {}
+
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-l>"
@@ -178,6 +184,9 @@ set termencoding=utf-8
 " Color scheme in ~/.vim/colors/
 colorscheme mustang
 
+" javascript settings 
+autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
+
 " markdown settings
 autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType markdown setlocal spell spelllang=en_us
@@ -196,3 +205,5 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_no_default_key_mappings = 1
 let g:vim_markdown_math = 1
 let g:vim_markdown_new_list_item_indent = 2
+
+"
