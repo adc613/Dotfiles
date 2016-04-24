@@ -20,6 +20,7 @@ Plugin 'nvie/vim-flake8'                    " Python lynter
 Plugin 'rstacruz/sparkup'                   " Not sure what this does or how it got here
 Plugin 'scrooloose/nerdtree'                " File explorer 
 Plugin 'scrooloose/syntastic'               " Syntax lynter 
+Plugin 'scrooloose/nerdcommenter'            " Easy commenting and uncommenting 
 Plugin 'tpope/vim-fugitive'                 " Git integration
 Plugin 'tpope/vim-surround'                 " Allows easy surrounding of words and text in quotes and such 
 Plugin 'godlygeek/tabular'                  " Don't know what this is or how it got here 
@@ -31,6 +32,7 @@ Plugin 'simeji/winresizer'                  " Easy window resizing
 Plugin 'jelera/vim-javascript-syntax'       " JavaScript syntax highlighting
 Plugin 'pangloss/vim-javascript'            " Javascript indenting
 Plugin 'nathanaelkane/vim-indent-guides'    " Javascript indenting
+Plugin 'vim-scripts/RangeMacro'            " Easily applies macro to a range of lines
 
 
 " All of your Plugins must be added before the following line
