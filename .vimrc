@@ -20,7 +20,7 @@ Plugin 'nvie/vim-flake8'                    " Python lynter
 Plugin 'rstacruz/sparkup'                   " Not sure what this does or how it got here
 Plugin 'scrooloose/nerdtree'                " File explorer 
 Plugin 'scrooloose/syntastic'               " Syntax lynter 
-Plugin 'scrooloose/nerdcommenter'            " Easy commenting and uncommenting 
+Plugin 'scrooloose/nerdcommenter'           " Easy commenting and uncommenting 
 Plugin 'tpope/vim-fugitive'                 " Git integration
 Plugin 'tpope/vim-surround'                 " Allows easy surrounding of words and text in quotes and such 
 Plugin 'godlygeek/tabular'                  " Don't know what this is or how it got here 
@@ -32,7 +32,7 @@ Plugin 'simeji/winresizer'                  " Easy window resizing
 Plugin 'jelera/vim-javascript-syntax'       " JavaScript syntax highlighting
 Plugin 'pangloss/vim-javascript'            " Javascript indenting
 Plugin 'nathanaelkane/vim-indent-guides'    " Javascript indenting
-Plugin 'vim-scripts/RangeMacro'            " Easily applies macro to a range of lines
+Plugin 'vim-scripts/RangeMacro'             " Easily applies macro to a range of lines
 
 
 " All of your Plugins must be added before the following line
@@ -208,4 +208,33 @@ let g:vim_markdown_no_default_key_mappings = 1
 let g:vim_markdown_math = 1
 let g:vim_markdown_new_list_item_indent = 2
 
-"
+" function to let me do math in vim
+vnoremap ;bc "ey:call CalcBC()<CR>
+function! CalcBC()
+  let has_equal = 0
+  " remove newlines and trailing spaces
+  let @e = substitute (@e, "\n", "", "g")
+  let @e = substitute (@e, '\s*$', "", "g")
+  " if we end with an equal, strip, and remember for output
+  if @e =~ "=$"
+    let @e = substitute (@e, '=$', "", "")
+    let has_equal = 1
+  endif
+  " sub common func names for bc equivalent
+  let @e = substitute (@e, '\csin\s*(', "s (", "")
+  let @e = substitute (@e, '\ccos\s*(', "c (", "")
+  let @e = substitute (@e, '\catan\s*(', "a (", "")
+  let @e = substitute (@e, "\cln\s*(", "l (", "")
+  " escape chars for shell
+  let @e = escape (@e, '*()')
+  " run bc, strip newline
+  let answer = substitute (system ("echo " . @e . " \| bc -l"), "\n", "", "")
+  " append answer or echo
+  if has_equal == 1
+    normal `>
+    exec "normal a" . answer
+  else
+    echo "answer = " . answer
+  endif
+endfunction
+
