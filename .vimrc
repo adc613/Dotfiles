@@ -180,8 +180,10 @@ let g:Powerline_symbols = 'unicode'
 set encoding=utf-8
 set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
-set term=xterm-256color
+set term=screen-256color
 set termencoding=utf-8
+set nocompatible
+set laststatus=2
 
 " Color scheme in ~/.vim/colors/
 colorscheme mustang
