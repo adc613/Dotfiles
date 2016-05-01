@@ -78,7 +78,7 @@ nnoremap <silent> <Leader>= :resize -5 <CR>
 
 " move between tabs wit , M or N ( left and right respectively)
 map <C-n> <esc>:tabprevious<CR>
-map <C-m> <esc>:tabnext<CR>
+map <C-p> <esc>:tabnext<CR>
 
 " Alphabetically sort lines of code in visual mode
 vnoremap <Leader>a :sort<CR>
@@ -122,7 +122,6 @@ highlight SyntasticWarning guibg=#000000 guifg=#ffffff
 " Flake8- python syntax linter
 autocmd VimEnter *.py call Flake8()
 autocmd BufWritePost *.py call Flake8()
-let g:flake8_show_quickfix=0 " should remove quickfix menu but doesn't work
 let g:flake8_show_in_gutter=1 " shows warning signs next to the number line
 
 " Sets error markersfor all the differnt error types
