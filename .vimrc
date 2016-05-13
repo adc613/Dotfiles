@@ -1,6 +1,6 @@
 " Adam Collins
 " adc613@gmail.com
-" Welcome to my beautiful and continually evolving .vimrc
+" Welcome to my beautiful and continuously evolving .vimrc
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -33,6 +33,8 @@ Plugin 'jelera/vim-javascript-syntax'       " JavaScript syntax highlighting
 Plugin 'pangloss/vim-javascript'            " Javascript indenting
 Plugin 'nathanaelkane/vim-indent-guides'    " Javascript indenting
 Plugin 'vim-scripts/RangeMacro'             " Easily applies macro to a range of lines
+Plugin 'mxw/vim-jsx'                        " JSX highlighting 
+Plugin 'isRuslan/vim-es6'                   " ES6 highlighting
 
 
 " All of your Plugins must be added before the following line
@@ -44,8 +46,9 @@ set relativenumber " enables relative number
 set number  " shows the number of current line 
 set autoindent "automatically indents
 set tabstop=4
+set shiftwidth=4
 set expandtab
-set tw=79   "width of the document (used by GD)
+set tw=0   "width of the document (used by GD)
 set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
 set colorcolumn=80 " colors 80th collumn
@@ -110,6 +113,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 let g:syntastic_html_tidy_exec = 'tidy5'
+let g:syntastic_javascript_checkers = ['eslint']
 
 " syntastic highlighting 
 highlight SyntasticErrorSign guibg=#000000 guifg=#ffffff
@@ -139,8 +143,12 @@ highlight link Flake8_Complexity    flake8
 highlight link Flake8_Naming        flake8
 highlight link Flake8_PyFlake       flake8
 
+autocmd FileType css setlocal shiftwidth=2 tabstop=2
+autocmd FileType css setlocal tw=0
+
 " Change indentation for html
-autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType html setlocal tw=0
 
 " close tag for html plugin
 autocmd FileType html let b:closetag_html_style=1
@@ -185,10 +193,12 @@ set nocompatible
 set laststatus=2
 
 " Color scheme in ~/.vim/colors/
-colorscheme mustang
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
 
 " javascript settings 
-autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " markdown settings
 autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 softtabstop=2
