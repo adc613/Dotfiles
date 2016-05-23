@@ -1,0 +1,35 @@
+snippet view "A generic django class view"
+class ${1:Homepage}View(View):
+	"""
+	${2: comments}
+	"""
+	template_name = '${1/([a-z])([A-Z])/\l$1_\l$2/g}.html'
+
+	def get(self, request, *args, **kwargs):
+		context = {}
+
+		return render(request, self.template_name, context)
+
+	def post(self, request, *args, **kwargs):
+		context = {}
+
+		return render(request, self.template_name, context)
+endsnippet
+
+snippet url "A generic django URL"
+
+url(r'${1:django/(?P<pk>\d+)/$}', views.${2:DjangoView}.as_view(),
+    name='${3:django}'),
+
+endsnippet
+
+snippet model "A generic django model class"
+class ${1:Model}(models.Model):
+	creator = models.ForeignKey(User)
+    creation_date = models.DateTimeField(auto_now_add=True,
+                                         auto_now=False,
+                                         editable=False)
+    last_modified_date = models.DateTimeField(auto_now_add=False,
+                                              auto_now=True,
+                                              editable=False)
+endsnippet
