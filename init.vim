@@ -8,38 +8,43 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.config/nvim/bundle/Vundle.vim
 let path="~/.config/nvim/bundle"
-call vundle#begin(path)
+call plug#begin(path)
 
-Plugin 'Lokaltog/vim-powerline'             " Makes my status bar cool and useful in vim
-Plugin 'Townk/vim-autoclose'                " Automatically closes parenthesis and quores
-Plugin 'VundleVim/Vundle.vim'               " Plugin manager 
-Plugin 'docunext/closetag.vim'              " Closes html tags when I type </ 
-Plugin 'nvie/vim-flake8'                    " Python lynter 
-Plugin 'rstacruz/sparkup'                   " Not sure what this does or how it got here
-Plugin 'scrooloose/nerdtree'                " File explorer 
-Plugin 'scrooloose/syntastic'               " Syntax lynter 
-Plugin 'scrooloose/nerdcommenter'           " Easy commenting and uncommenting 
-Plugin 'tpope/vim-fugitive'                 " Git integration
-Plugin 'tpope/vim-surround'                 " Allows easy surrounding of words and text in quotes and such 
-Plugin 'godlygeek/tabular'                  " Don't know what this is or how it got here 
-Plugin 'plasticboy/vim-markdown'            " Markdown plugin, not sure if it does anything
-Plugin 'suan/vim-instant-markdown'          " Allows me to view my markdwon edits in chrome as it happens 
-Plugin 'tpope/vim-obsession'                " Maintains vim sessions through a system reboot
-Plugin 'simeji/winresizer'                  " Easy window resizing
-Plugin 'jelera/vim-javascript-syntax'       " JavaScript syntax highlighting
-Plugin 'pangloss/vim-javascript'            " Javascript indenting
-Plugin 'nathanaelkane/vim-indent-guides'    " Javascript indenting
-Plugin 'vim-scripts/RangeMacro'             " Easily applies macro to a range of lines
-Plugin 'mxw/vim-jsx'                        " JSX highlighting 
-Plugin 'isRuslan/vim-es6'                   " ES6 highlighting
-Plugin 'junegunn/fzf.vim'                   " Fuzzy file finder
-Plugin 'Shougo/neocomplete'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
-Plugin 'Shougo/deoplete.nvim'
+Plug 'Lokaltog/vim-powerline'             " Makes my status bar cool and useful in vim
+Plug 'Townk/vim-autoclose'                " Automatically closes parenthesis and quores
+Plug 'VundleVim/Vundle.vim'               " Plugin manager 
+Plug 'docunext/closetag.vim'              " Closes html tags when I type </ 
+Plug 'nvie/vim-flake8'                    " Python lynter 
+Plug 'rstacruz/sparkup'                   " Not sure what this does or how it got here
+Plug 'scrooloose/nerdtree'                " File explorer 
+Plug 'scrooloose/nerdcommenter'           " Easy commenting and uncommenting 
+Plug 'tpope/vim-fugitive'                 " Git integration
+Plug 'tpope/vim-surround'                 " Allows easy surrounding of words and text in quotes and such 
+Plug 'godlygeek/tabular'                  " Don't know what this is or how it got here 
+Plug 'plasticboy/vim-markdown'            " Markdown plugin, not sure if it does anything
+Plug 'suan/vim-instant-markdown'          " Allows me to view my markdwon edits in chrome as it happens 
+Plug 'tpope/vim-obsession'                " Maintains vim sessions through a system reboot
+Plug 'simeji/winresizer'                  " Easy window resizing
+Plug 'jelera/vim-javascript-syntax'       " JavaScript syntax highlighting
+Plug 'pangloss/vim-javascript'            " Javascript indenting
+Plug 'nathanaelkane/vim-indent-guides'    " Javascript indenting
+Plug 'vim-scripts/RangeMacro'             " Easily applies macro to a range of lines
+Plug 'mxw/vim-jsx'                        " JSX highlighting 
+Plug 'isRuslan/vim-es6'                   " ES6 highlighting
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }                   " Fuzzy file finder
+Plug 'junegunn/fzf.vim'
+Plug 'Shougo/neocomplete'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'neomake/neomake'
+
+function! DoRemote(arg)
+  UpdateRemotePlugins
+endfunction
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
 
 set softtabstop=4 
@@ -103,31 +108,9 @@ map <Leader>f  :NERDTreeToggle<cr>
 " remove search highlted words
 nnoremap <CR> :noh <cr>
 
-"Syntastic recommended settings 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-" Syntastic settings
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_python_exec = '/usr/local/bin/python3'
-let g:syntastic_html_tidy_exec = 'tidy5'
-let g:syntastic_javascript_checkers = []
-
-" syntastic highlighting 
-highlight SyntasticErrorSign guibg=#000000 guifg=#ffffff
-highlight SyntasticWarningSign guibg=#000000 guifg=#ffffff
-highlight SyntasticErrorLine guibg=#000000 guifg=#ffffff
-highlight SyntasticWarningLine guibg=#000000 guifg=#ffffff
-highlight SyntasticError guibg=#000000 guifg=#ffffff
-highlight SyntasticWarning guibg=#000000 guifg=#ffffff
-
 " Flake8- python syntax linter
-autocmd VimEnter *.py call Flake8()
-autocmd BufWritePost *.py call Flake8()
+autocmd! BufWritePost,BufEnter * Neomake
+
 let g:flake8_show_in_gutter=1 " shows warning signs next to the number line
 
 " Sets error markersfor all the differnt error types
@@ -169,7 +152,6 @@ endif
 
 " Powerline
 let g:Powerline_symbols = 'unicode'
-set encoding=utf-8
 set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 set termencoding=utf-8
@@ -177,9 +159,10 @@ set nocompatible
 set laststatus=2
 
 " Color scheme in ~/.vim/colors/
-let g:solarized_termcolors=256
 set background=dark
-colorscheme solarized
+colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'hard'
+
 
 " javascript settings 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -278,7 +261,7 @@ let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
-nnoremap <silent> <leader><space> :Files<CR>
+nnoremap <silent> <C-c> :Files<CR>
 nnoremap <silent> <leader>a :Buffers<CR>
 
 " Use deoplete.
@@ -289,3 +272,7 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 
 " Tell Neosnippet about the other snippets
 let g:neosnippet#snippets_directory='~/.vim/UltiSnips'
+
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
