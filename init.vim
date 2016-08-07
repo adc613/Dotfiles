@@ -32,17 +32,17 @@ Plug 'vim-scripts/RangeMacro'             " Easily applies macro to a range of l
 Plug 'mxw/vim-jsx'                        " JSX highlighting 
 Plug 'isRuslan/vim-es6'                   " ES6 highlighting
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }                   " Fuzzy file finder
-Plug 'junegunn/fzf.vim'
-Plug 'Shougo/neocomplete'
-Plug 'Shougo/neosnippet'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'neomake/neomake'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'junegunn/fzf.vim'                   " Aallows for FZF to be opened inside of vim
+Plug 'Shougo/neocomplete'                 " Aysnc autocomplete 
+Plug 'Shougo/neosnippet'                  " Async snippet support (replaces UltiSnips)
+Plug 'Shougo/neosnippet-snippets'         " Async snippet support 
+Plug 'neomake/neomake'                    " Async job handling (for linters, replaces Syntastic) 
+Plug 'vim-airline/vim-airline-themes'     " Adds a directory of Airline Themes
 
 function! DoRemote(arg)
   UpdateRemotePlugins
 endfunction
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }     " Async autocomplete
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
