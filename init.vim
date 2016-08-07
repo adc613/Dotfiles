@@ -6,11 +6,11 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.config/nvim/bundle/Vundle.vim
 let path="~/.config/nvim/bundle"
 call plug#begin(path)
 
-Plug 'Lokaltog/vim-powerline'             " Makes my status bar cool and useful in vim
+Plug 'bling/vim-airline'                  " Status line
+Plug 'mkitt/tabline.vim'
 Plug 'Townk/vim-autoclose'                " Automatically closes parenthesis and quores
 Plug 'VundleVim/Vundle.vim'               " Plugin manager 
 Plug 'docunext/closetag.vim'              " Closes html tags when I type </ 
@@ -37,6 +37,7 @@ Plug 'Shougo/neocomplete'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'neomake/neomake'
+Plug 'vim-airline/vim-airline-themes'
 
 function! DoRemote(arg)
   UpdateRemotePlugins
@@ -73,7 +74,7 @@ autocmd! bufwritepost init.vim source %
 " allows me to copy and past outside of terminal
 set clipboard=unnamed
 
-let mapleader = ","
+let mapleader = "\<space>"
 
 " move between pane using control keys and H,J,K,L 
 map <C-j> <c-w>j
@@ -275,4 +276,30 @@ let g:neosnippet#snippets_directory='~/.vim/UltiSnips'
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
-autocmd! User FzfStatusLine call <SID>fzf_statusline()
+" Tell Vim which characters to show for expanded TABs,
+" trailing whitespace, and end-of-lines. VERY useful!
+if &listchars ==# 'eol:$'
+  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+endif
+set list                " Show problematic characters.
+
+" Also highlight all tabs and trailing whitespace characters.
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+match ExtraWhitespace /\s\+$\|\t/
+
+let g:airline#extensions#tabline#enabled = 2
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#right_sep = ' '
+let g:airline#extensions#tabline#right_alt_sep = '|'
+let g:airline_left_sep = ' '
+let g:airline_left_alt_sep = '|'
+let g:airline_right_sep = ' '
+let g:airline_right_alt_sep = '|'
+let g:airline_theme= 'solarized'
+
+hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
+hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
+hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
+
