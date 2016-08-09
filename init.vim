@@ -168,6 +168,9 @@ let g:gruvbox_contrast_dark = 'hard'
 " javascript settings 
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
+" yaml settings 
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
 " markdown settings
 autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType markdown setlocal spell spelllang=en_us
@@ -302,4 +305,3 @@ let g:airline_theme= 'solarized'
 hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
-
