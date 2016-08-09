@@ -40,7 +40,7 @@ Plug 'neomake/neomake'                    " Async job handling (for linters, rep
 Plug 'vim-airline/vim-airline-themes'     " Adds a directory of Airline Themes
 
 function! DoRemote(arg)
-  UpdateRemotePlugins
+UpdateRemotePlugins
 endfunction
 Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }     " Async autocomplete
 
@@ -76,11 +76,6 @@ set clipboard=unnamed
 
 let mapleader = "\<space>"
 
-" move between pane using control keys and H,J,K,L 
-map <C-j> <c-w>j
-map <C-k> <c-w>k
-map <C-l> <c-w>l
-map <C-h> <c-w>h
 
 " resize panes
 nnoremap <silent> <Leader>+ :resize +5 <CR>
@@ -305,3 +300,9 @@ let g:airline_theme= 'solarized'
 hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
+
+" move between pane using control keys and H,J,K,L 
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <BS> <C-W><C-H>                " There's a bug with neovim <C-H> return <BS> this is my hack-around
