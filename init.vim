@@ -9,7 +9,7 @@ filetype off                  " required
 let path="~/.config/nvim/bundle"
 call plug#begin(path)
 
-Plug 'bling/vim-airline'                  " Status line
+Plug 'bling/vim-airline'                  " Status bar
 Plug 'mkitt/tabline.vim'
 Plug 'Townk/vim-autoclose'                " Automatically closes parenthesis and quores
 Plug 'VundleVim/Vundle.vim'               " Plugin manager 
@@ -104,7 +104,8 @@ map <Leader>f  :NERDTreeToggle<cr>
 " remove search highlted words
 nnoremap <CR> :noh <cr>
 
-" Flake8- python syntax linter
+" Neomake settings
+let g:neomake_javascript_enabled_makers = ['eslint']
 autocmd! BufWritePost,BufEnter * Neomake
 
 let g:flake8_show_in_gutter=1 " shows warning signs next to the number line
@@ -306,3 +307,5 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <BS> <C-W><C-H>                " There's a bug with neovim <C-H> return <BS> this is my hack-around
+
+inoremap <C-I> <esc> I
