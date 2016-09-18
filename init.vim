@@ -12,31 +12,31 @@ call plug#begin(path)
 Plug 'bling/vim-airline'                  " Status line
 Plug 'mkitt/tabline.vim'
 Plug 'Townk/vim-autoclose'                " Automatically closes parenthesis and quores
-Plug 'VundleVim/Vundle.vim'               " Plugin manager 
-Plug 'docunext/closetag.vim'              " Closes html tags when I type </ 
-Plug 'nvie/vim-flake8'                    " Python lynter 
+Plug 'VundleVim/Vundle.vim'               " Plugin manager
+Plug 'docunext/closetag.vim'              " Closes html tags when I type </
+Plug 'nvie/vim-flake8'                    " Python lynter
 Plug 'rstacruz/sparkup'                   " Not sure what this does or how it got here
-Plug 'scrooloose/nerdtree'                " File explorer 
-Plug 'scrooloose/nerdcommenter'           " Easy commenting and uncommenting 
+Plug 'scrooloose/nerdtree'                " File explorer
+Plug 'scrooloose/nerdcommenter'           " Easy commenting and uncommenting
 Plug 'tpope/vim-fugitive'                 " Git integration
-Plug 'tpope/vim-surround'                 " Allows easy surrounding of words and text in quotes and such 
-Plug 'godlygeek/tabular'                  " Don't know what this is or how it got here 
+Plug 'tpope/vim-surround'                 " Allows easy surrounding of words and text in quotes and such
+Plug 'godlygeek/tabular'                  " Don't know what this is or how it got here
 Plug 'plasticboy/vim-markdown'            " Markdown plugin, not sure if it does anything
-Plug 'suan/vim-instant-markdown'          " Allows me to view my markdwon edits in chrome as it happens 
+Plug 'suan/vim-instant-markdown'          " Allows me to view my markdwon edits in chrome as it happens
 Plug 'tpope/vim-obsession'                " Maintains vim sessions through a system reboot
 Plug 'simeji/winresizer'                  " Easy window resizing
 Plug 'jelera/vim-javascript-syntax'       " JavaScript syntax highlighting
 Plug 'pangloss/vim-javascript'            " Javascript indenting
 Plug 'nathanaelkane/vim-indent-guides'    " Javascript indenting
 Plug 'vim-scripts/RangeMacro'             " Easily applies macro to a range of lines
-Plug 'mxw/vim-jsx'                        " JSX highlighting 
+Plug 'mxw/vim-jsx'                        " JSX highlighting
 Plug 'isRuslan/vim-es6'                   " ES6 highlighting
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }                   " Fuzzy file finder
 Plug 'junegunn/fzf.vim'                   " Aallows for FZF to be opened inside of vim
-Plug 'Shougo/neocomplete'                 " Aysnc autocomplete 
+Plug 'Shougo/neocomplete'                 " Aysnc autocomplete
 Plug 'Shougo/neosnippet'                  " Async snippet support (replaces UltiSnips)
-Plug 'Shougo/neosnippet-snippets'         " Async snippet support 
-Plug 'neomake/neomake'                    " Async job handling (for linters, replaces Syntastic) 
+Plug 'Shougo/neosnippet-snippets'         " Async snippet support
+Plug 'neomake/neomake'                    " Async job handling (for linters, replaces Syntastic)
 Plug 'vim-airline/vim-airline-themes'     " Adds a directory of Airline Themes
 
 function! DoRemote(arg)
@@ -157,7 +157,7 @@ set laststatus=2
 " Color scheme in ~/.vim/colors/
 set background=dark
 colorscheme gruvbox
-let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_dark = 'medium'
 
 
 " javascript settings 
@@ -295,7 +295,7 @@ let g:airline_left_sep = ' '
 let g:airline_left_alt_sep = '|'
 let g:airline_right_sep = ' '
 let g:airline_right_alt_sep = '|'
-let g:airline_theme= 'solarized'
+let g:airline_theme= 'luna'
 
 hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
