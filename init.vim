@@ -15,13 +15,13 @@ Plug 'Townk/vim-autoclose'                " Automatically closes parenthesis and
 Plug 'VundleVim/Vundle.vim'               " Plugin manager
 Plug 'docunext/closetag.vim'              " Closes html tags when I type </
 Plug 'nvie/vim-flake8'                    " Python lynter
-Plug 'rstacruz/sparkup'                   " Not sure what this does or how it got here
+"Plug 'rstacruz/sparkup'                   " Cool plugin never learned how to use it though
 Plug 'scrooloose/nerdtree'                " File explorer
 Plug 'scrooloose/nerdcommenter'           " Easy commenting and uncommenting
 Plug 'tpope/vim-fugitive'                 " Git integration
 Plug 'tpope/vim-surround'                 " Allows easy surrounding of words and text in quotes and such
 Plug 'godlygeek/tabular'                  " Don't know what this is or how it got here
-Plug 'plasticboy/vim-markdown'            " Markdown plugin, not sure if it does anything
+"Plug 'plasticboy/vim-markdown'            " Markdown plugin, not sure if it does anything
 Plug 'suan/vim-instant-markdown'          " Allows me to view my markdwon edits in chrome as it happens
 Plug 'tpope/vim-obsession'                " Maintains vim sessions through a system reboot
 Plug 'simeji/winresizer'                  " Easy window resizing
@@ -268,9 +268,28 @@ let g:deoplete#enable_at_startup = 1
 
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
+"
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 
 " Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/UltiSnips'
+let g:neosnippet#snippets_directory='~/.config/nvim/UltiSnipsOld'
+autocmd FileType neosnippet setlocal autoindent noexpandtab tabstop=4 shiftwidth=4
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 

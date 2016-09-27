@@ -1,0 +1,21 @@
+snippet component
+options head
+	import React from 'react';
+	import PureRenderMixin from 'react-addons-pure-render-mixin'
+	
+	
+	class ${1:Component} extends React.Component {
+	
+		constructor(props) {
+			super(props)
+			this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+		}
+		
+		render() {
+			return (
+				<div>
+					Hello World
+				</div>
+			);
+		}
+	}
