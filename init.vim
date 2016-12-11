@@ -33,11 +33,13 @@ Plug 'mxw/vim-jsx'                        " JSX highlighting
 Plug 'isRuslan/vim-es6'                   " ES6 highlighting
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }                   " Fuzzy file finder
 Plug 'junegunn/fzf.vim'                   " Aallows for FZF to be opened inside of vim
-Plug 'Shougo/neocomplete'                 " Aysnc autocomplete
-Plug 'Shougo/neosnippet'                  " Async snippet support (replaces UltiSnips)
-Plug 'Shougo/neosnippet-snippets'         " Async snippet support
+Plug 'SirVer/ultisnips'                   " Gotta love your snippets
 Plug 'neomake/neomake'                    " Async job handling (for linters, replaces Syntastic)
 Plug 'vim-airline/vim-airline-themes'     " Adds a directory of Airline Themes
+Plug 'honza/vim-snippets'                 " more snippets
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }   " javascript code alyser
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] } " deopplet compatibility i think
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] } " javascript code complete
 
 function! DoRemote(arg)
 UpdateRemotePlugins
@@ -265,31 +267,30 @@ nnoremap <silent> <leader>a :Buffers<CR>
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources={}
+let g:deoplete#sources._=['buffer', 'file', 'ultisnips', 'ternjs']
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete',
+  \ 'jspc#omni'
+\]
 
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
-"
-" Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+let g:tern#command = ['tern']
+let g:tern#arguments = ['-persistent']
 
-" SuperTab like snippets behavior.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+let g:acp_enableAtStartup = 0
 
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsSnippetsDir="/home/adam/.config/nvim/"
+let g:UltiSnipsSnippetDirectories = ["UltiSnipsOld", "snips"]
 
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.config/nvim/UltiSnipsOld'
-autocmd FileType neosnippet setlocal autoindent noexpandtab tabstop=4 shiftwidth=4
+let g:UltiSnipsExpandTrigger="<leader>e"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+let g:UltiSnipsUsePythonVersion = 3
+
+" If you want :UltiSnipsEdit to split your window.
+"let g:UltiSnipsEditSplit="vertical" Enable snipMate compatibility feature.
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
@@ -320,7 +321,7 @@ hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 
-" move between pane using control keys and H,J,K,L 
+" move between pane using control keys and H,J,K,L
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
