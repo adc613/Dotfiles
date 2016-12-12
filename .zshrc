@@ -4,6 +4,8 @@ alias sshblog="ssh adam@162.243.184.210"
 alias sshecho="ssh -i /Users/AdamC/projects/AmazonEcho/senior_project.pem ubuntu@52.2.249.69"
 alias test_django="coverage run --source='.' manage.py test"
 
+
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/AdamC/.oh-my-zsh
 

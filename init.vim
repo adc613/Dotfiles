@@ -50,9 +50,9 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }     " Async autocomp
 call plug#end()            " required
 filetype plugin indent on    " required
 
-set softtabstop=4 
+set softtabstop=4
 set relativenumber " enables relative number
-set number  " shows the number of current line 
+set number  " shows the number of current line
 set autoindent "automatically indents
 set tabstop=4
 set shiftwidth=4
@@ -62,10 +62,10 @@ set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
 set colorcolumn=80 " colors 80th collumn
 set ignorecase "ignore case in search
-set smartcase  "becomes case sensitive once you use a case 
+set smartcase  "becomes case sensitive once you use a case
 set hlsearch "highlights search
 set incsearch "searches while typing
-set foldmethod=indent 
+set foldmethod=indent
 
 
 " turns on highlighted syntax not sure what the other shit does
@@ -91,15 +91,15 @@ map <C-p> <esc>:tabprevious<CR>
 " Alphabetically sort lines of code in visual mode
 vnoremap <Leader>a :sort<CR>
 
-" allows me edit the tabs in blocks of code 
-vnoremap < <gv 
+" allows me edit the tabs in blocks of code
+vnoremap < <gv
 vnoremap > >gv
 
 " easier formatting of paragraphs remaps when you go above 80 characters
 vmap Q gq
 nmap Q gqap
 
-" Toggle NERDTree 
+" Toggle NERDTree
 map <Leader>f  :NERDTreeToggle<cr>
 
 
@@ -112,7 +112,7 @@ autocmd! BufWritePost,BufEnter * Neomake
 let g:flake8_show_in_gutter=1 " shows warning signs next to the number line
 
 " Sets error markersfor all the differnt error types
-let g:flake8_error_marker="EE" 
+let g:flake8_error_marker="EE"
 let g:flake8_warning_marker=">>"
 let g:flake8_pyflake_marker=">>"
 let g:flake8_complexity_marker=">>"
@@ -162,10 +162,10 @@ colorscheme gruvbox
 let g:gruvbox_contrast_dark = 'medium'
 
 
-" javascript settings 
+" javascript settingS
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
-" yaml settings 
+" yaml settings
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " markdown settings
@@ -210,7 +210,7 @@ function! CalcBC()
     echo "answer = " . answer
   endif
 endfunction
- 
+
 " FZF settings
 " This is the default extra key bindings
 let g:fzf_action = {
@@ -282,9 +282,9 @@ let g:acp_enableAtStartup = 0
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsSnippetsDir="/home/adam/.config/nvim/"
-let g:UltiSnipsSnippetDirectories = ["UltiSnipsOld", "snips"]
+let g:UltiSnipsSnippetDirectories = ["UltiSnips", "snips"]
 
-let g:UltiSnipsExpandTrigger="<leader>e"
+let g:UltiSnipsExpandTrigger="<C-e>"
 let g:UltiSnipsJumpForwardTrigger="<c-n>"
 let g:UltiSnipsJumpBackwardTrigger="<c-p>"
 let g:UltiSnipsUsePythonVersion = 3
