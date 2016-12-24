@@ -12,32 +12,34 @@ call plug#begin(path)
 Plug 'bling/vim-airline'                  " Status bar
 Plug 'mkitt/tabline.vim'
 Plug 'Townk/vim-autoclose'                " Automatically closes parenthesis and quores
-Plug 'VundleVim/Vundle.vim'               " Plugin manager 
-Plug 'docunext/closetag.vim'              " Closes html tags when I type </ 
-Plug 'nvie/vim-flake8'                    " Python lynter 
-Plug 'rstacruz/sparkup'                   " Not sure what this does or how it got here
-Plug 'scrooloose/nerdtree'                " File explorer 
-Plug 'scrooloose/nerdcommenter'           " Easy commenting and uncommenting 
+Plug 'VundleVim/Vundle.vim'               " Plugin manager
+Plug 'docunext/closetag.vim'              " Closes html tags when I type </
+Plug 'nvie/vim-flake8'                    " Python lynter
+"Plug 'rstacruz/sparkup'                   " Cool plugin never learned how to use it though
+Plug 'scrooloose/nerdtree'                " File explorer
+Plug 'scrooloose/nerdcommenter'           " Easy commenting and uncommenting
 Plug 'tpope/vim-fugitive'                 " Git integration
-Plug 'tpope/vim-surround'                 " Allows easy surrounding of words and text in quotes and such 
-Plug 'godlygeek/tabular'                  " Don't know what this is or how it got here 
-Plug 'plasticboy/vim-markdown'            " Markdown plugin, not sure if it does anything
-Plug 'suan/vim-instant-markdown'          " Allows me to view my markdwon edits in chrome as it happens 
+Plug 'tpope/vim-surround'                 " Allows easy surrounding of words and text in quotes and such
+Plug 'godlygeek/tabular'                  " Don't know what this is or how it got here
+"Plug 'plasticboy/vim-markdown'            " Markdown plugin, not sure if it does anything
+Plug 'suan/vim-instant-markdown'          " Allows me to view my markdwon edits in chrome as it happens
 Plug 'tpope/vim-obsession'                " Maintains vim sessions through a system reboot
 Plug 'simeji/winresizer'                  " Easy window resizing
 Plug 'jelera/vim-javascript-syntax'       " JavaScript syntax highlighting
 Plug 'pangloss/vim-javascript'            " Javascript indenting
 Plug 'nathanaelkane/vim-indent-guides'    " Javascript indenting
 Plug 'vim-scripts/RangeMacro'             " Easily applies macro to a range of lines
-Plug 'mxw/vim-jsx'                        " JSX highlighting 
+Plug 'mxw/vim-jsx'                        " JSX highlighting
 Plug 'isRuslan/vim-es6'                   " ES6 highlighting
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }                   " Fuzzy file finder
 Plug 'junegunn/fzf.vim'                   " Aallows for FZF to be opened inside of vim
-Plug 'Shougo/neocomplete'                 " Aysnc autocomplete 
-Plug 'Shougo/neosnippet'                  " Async snippet support (replaces UltiSnips)
-Plug 'Shougo/neosnippet-snippets'         " Async snippet support 
-Plug 'neomake/neomake'                    " Async job handling (for linters, replaces Syntastic) 
+Plug 'SirVer/ultisnips'                   " Gotta love your snippets
+Plug 'neomake/neomake'                    " Async job handling (for linters, replaces Syntastic)
 Plug 'vim-airline/vim-airline-themes'     " Adds a directory of Airline Themes
+Plug 'honza/vim-snippets'                 " more snippets
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }   " javascript code alyser
+Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] } " deopplet compatibility i think
+Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] } " javascript code complete
 
 function! DoRemote(arg)
 UpdateRemotePlugins
@@ -48,9 +50,9 @@ Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }     " Async autocomp
 call plug#end()            " required
 filetype plugin indent on    " required
 
-set softtabstop=4 
+set softtabstop=4
 set relativenumber " enables relative number
-set number  " shows the number of current line 
+set number  " shows the number of current line
 set autoindent "automatically indents
 set tabstop=4
 set shiftwidth=4
@@ -60,10 +62,10 @@ set nowrap  " don't automatically wrap on load
 set fo-=t   " don't automatically wrap text when typing
 set colorcolumn=80 " colors 80th collumn
 set ignorecase "ignore case in search
-set smartcase  "becomes case sensitive once you use a case 
+set smartcase  "becomes case sensitive once you use a case
 set hlsearch "highlights search
 set incsearch "searches while typing
-set foldmethod=indent 
+set foldmethod=indent
 
 
 " turns on highlighted syntax not sure what the other shit does
@@ -89,15 +91,15 @@ map <C-p> <esc>:tabprevious<CR>
 " Alphabetically sort lines of code in visual mode
 vnoremap <Leader>a :sort<CR>
 
-" allows me edit the tabs in blocks of code 
-vnoremap < <gv 
+" allows me edit the tabs in blocks of code
+vnoremap < <gv
 vnoremap > >gv
 
 " easier formatting of paragraphs remaps when you go above 80 characters
 vmap Q gq
 nmap Q gqap
 
-" Toggle NERDTree 
+" Toggle NERDTree
 map <Leader>f  :NERDTreeToggle<cr>
 
 
@@ -111,7 +113,7 @@ autocmd! BufWritePost,BufEnter * Neomake
 let g:flake8_show_in_gutter=1 " shows warning signs next to the number line
 
 " Sets error markersfor all the differnt error types
-let g:flake8_error_marker="EE" 
+let g:flake8_error_marker="EE"
 let g:flake8_warning_marker=">>"
 let g:flake8_pyflake_marker=">>"
 let g:flake8_complexity_marker=">>"
@@ -158,13 +160,13 @@ set laststatus=2
 " Color scheme in ~/.vim/colors/
 set background=dark
 colorscheme gruvbox
-let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_dark = 'medium'
 
 
-" javascript settings 
+" javascript settingS
 autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
-" yaml settings 
+" yaml settings
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " markdown settings
@@ -209,7 +211,7 @@ function! CalcBC()
     echo "answer = " . answer
   endif
 endfunction
- 
+
 " FZF settings
 " This is the default extra key bindings
 let g:fzf_action = {
@@ -266,12 +268,30 @@ nnoremap <silent> <leader>a :Buffers<CR>
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources={}
+let g:deoplete#sources._=['buffer', 'file', 'ultisnips', 'ternjs']
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+  \ 'tern#Complete',
+  \ 'jspc#omni'
+\]
 
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
+let g:tern#command = ['tern']
+let g:tern#arguments = ['-persistent']
 
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/UltiSnips'
+let g:acp_enableAtStartup = 0
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsSnippetsDir="/home/adam/.config/nvim/"
+let g:UltiSnipsSnippetDirectories = ["UltiSnips", "snips"]
+
+let g:UltiSnipsExpandTrigger="<C-e>"
+let g:UltiSnipsJumpForwardTrigger="<c-n>"
+let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+let g:UltiSnipsUsePythonVersion = 3
+
+" If you want :UltiSnipsEdit to split your window.
+"let g:UltiSnipsEditSplit="vertical" Enable snipMate compatibility feature.
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
@@ -296,13 +316,13 @@ let g:airline_left_sep = ' '
 let g:airline_left_alt_sep = '|'
 let g:airline_right_sep = ' '
 let g:airline_right_alt_sep = '|'
-let g:airline_theme= 'solarized'
+let g:airline_theme= 'luna'
 
 hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 
-" move between pane using control keys and H,J,K,L 
+" move between pane using control keys and H,J,K,L
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
