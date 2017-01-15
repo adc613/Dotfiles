@@ -282,7 +282,7 @@ let g:tern#arguments = ['-persistent']
 let g:acp_enableAtStartup = 0
 
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsSnippetsDir="/home/adam/.config/nvim/"
+let g:UltiSnipsSnippetsDir="/Users/AdamC/.config/nvim/"
 let g:UltiSnipsSnippetDirectories = ["UltiSnips", "snips"]
 
 let g:UltiSnipsExpandTrigger="<C-e>"
