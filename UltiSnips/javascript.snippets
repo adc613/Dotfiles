@@ -10,3 +10,84 @@ for(let ${1:i} = 0; $1 < ${2:ary}.length; $1++) {
 }
 endsnippet
 
+snippet component "react compoent"
+import React from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
+
+class ${1:Component} extends React.Component {
+	constructor(props) {
+		super(props);
+		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+	}
+
+	render() {
+
+		return (
+			${2:<h1>Hello World</h1>}
+		);
+
+	}
+}
+
+
+export default $1;
+endsnippet
+
+snippet action "redux action"
+export function ${1:some}Action(${2:payload}) {
+
+	return {
+		type: ${3:SOME},
+		payload:{
+			$2
+		}
+	};
+
+}
+
+export function $1($2) {
+
+	return (dispatch, getState) => {
+
+		dispatch($1Action($2));
+
+	};
+
+}
+endsnippet
+
+snippet reducer "redux reducer"
+import { fromJS } from 'immutate';
+
+const initialState = fromJS({
+});
+
+export default function reducer(state=initialState, action) {
+
+	switch(action.type) {
+		default:
+			return state;
+	}
+
+}
+endsnippet
+
+snippet bind "jsx bind function"
+this.${1:functionName} = this.$1.bind(this);
+endsnippet
+
+snippet mapDispatchToProps "map dispatch to props funciton"
+function mapDispatchToProps(dispatch) {
+	return {
+		actions: bindActionCreators(actionCreators, dispatch),
+	};
+}
+endsnippet
+
+snippet comment "javascript documentaion"
+/**
+ * ${1:Description}
+ * @param {${2:Object}} ${3:param1} - ${4:description of param1}
+ * @return {${5:Object}} - ${6:description of param1}
+ */
+endsnippet
