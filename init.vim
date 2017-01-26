@@ -41,6 +41,9 @@ Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }   " java
 Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] } " deopplet compatibility i think
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] } " javascript code complete
 
+" java plugins
+Plug 'artur-shaik/vim-javacomplete2'      " java autocomplete
+
 function! DoRemote(arg)
 UpdateRemotePlugins
 endfunction
@@ -328,4 +331,11 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <BS> <C-W><C-H>                " There's a bug with neovim <C-H> return <BS> this is my hack-around
 
-inoremap <C-I> <esc> I
+
+" javacomplete2
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+nmap <F5> <Plug>(JavaComplete-Imports-Add)
+imap <F5> <Plug>(JavaComplete-Imports-Add)
+
