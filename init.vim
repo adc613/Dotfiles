@@ -339,3 +339,4 @@ imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 nmap <F5> <Plug>(JavaComplete-Imports-Add)
 imap <F5> <Plug>(JavaComplete-Imports-Add)
 
+let g:JavaComplete_LibsPath = '/home/adam/school/collins_oshinsky_391s17/HW1/lib/Sepia.jar'
