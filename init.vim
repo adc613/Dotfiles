@@ -41,6 +41,14 @@ Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'] }   " java
 Plug 'carlitux/deoplete-ternjs', { 'for': ['javascript', 'javascript.jsx'] } " deopplet compatibility i think
 Plug 'othree/jspc.vim', { 'for': ['javascript', 'javascript.jsx'] } " javascript code complete
 
+"Solidity
+Plug 'tomlion/vim-solidity'
+
+"Elixir
+Plug 'elixir-lang/vim-elixir'
+Plug 'thinca/vim-ref'
+Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
+
 " java plugins
 Plug 'artur-shaik/vim-javacomplete2'      " java autocomplete
 
@@ -339,4 +347,5 @@ imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 nmap <F5> <Plug>(JavaComplete-Imports-Add)
 imap <F5> <Plug>(JavaComplete-Imports-Add)
 
-let g:JavaComplete_LibsPath = '/home/adam/school/collins_oshinsky_391s17/HW1/lib/Sepia.jar'
+let g:JavaComplete_LibsPath = '/home/adam/school/collins_oshinsky_391s17/HW4_5/lib/Sepia.jar'
+let g:JavaComplete_SourcesPath =  '/home/adam/school/collins_oshinsky_391s17/HW4_5/src/'

@@ -33,6 +33,44 @@ class ${1:Component} extends React.Component {
 export default $1;
 endsnippet
 
+snippet container "react container"
+import React from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
+
+import * as actionCreators from './../actions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+class ${1:Component} extends React.Component {
+	constructor(props) {
+		super(props);
+		this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+	}
+
+	render() {
+
+		return (
+			${2:<h1>Hello World</h1>}
+		);
+
+	}
+}
+
+function mapDispatchToProps(dispatch) {
+	return {
+		actions: bindActionCreators(actionCreators, dispatch),
+	};
+}
+
+function mapStateToProps(state) {
+	return {
+		$3,
+	};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)($1);
+endsnippet
+
 snippet action "redux action"
 export function ${1:some}Action(${2:payload}) {
 
@@ -57,7 +95,7 @@ export function $1($2) {
 endsnippet
 
 snippet reducer "redux reducer"
-import { fromJS } from 'immutate';
+import { fromJS } from 'immutable';
 
 const initialState = fromJS({
 });
@@ -76,12 +114,24 @@ snippet bind "jsx bind function"
 this.${1:functionName} = this.$1.bind(this);
 endsnippet
 
+snippet mapStateToProps "map state to props funciton"
+function mapStateToProps(state) {
+	return {
+		$1,
+	};
+}
+endsnippet
+
 snippet mapDispatchToProps "map dispatch to props funciton"
 function mapDispatchToProps(dispatch) {
 	return {
 		actions: bindActionCreators(actionCreators, dispatch),
 	};
 }
+endsnippet
+
+snippet connect "redux connect"
+export default connect(mapStateToProps, mapDispatchToProps)($1);
 endsnippet
 
 snippet comment "javascript documentaion"
