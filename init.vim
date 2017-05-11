@@ -31,8 +31,8 @@ Plug 'nathanaelkane/vim-indent-guides'    " Javascript indenting
 Plug 'vim-scripts/RangeMacro'             " Easily applies macro to a range of lines
 Plug 'mxw/vim-jsx'                        " JSX highlighting
 Plug 'isRuslan/vim-es6'                   " ES6 highlighting
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }                   " Fuzzy file finder
-Plug 'junegunn/fzf.vim'                   " Aallows for FZF to be opened inside of vim
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }                   " Fuzzy file finder
+"Plug 'junegunn/fzf.vim'                   " Aallows for FZF to be opened inside of vim
 Plug 'SirVer/ultisnips'                   " Gotta love your snippets
 Plug 'neomake/neomake'                    " Async job handling (for linters, replaces Syntastic)
 Plug 'vim-airline/vim-airline-themes'     " Adds a directory of Airline Themes
@@ -109,9 +109,6 @@ vnoremap > >gv
 " easier formatting of paragraphs remaps when you go above 80 characters
 vmap Q gq
 nmap Q gqap
-
-" Toggle NERDTree
-map <Leader>f  :NERDTreeToggle<cr>
 
 
 " remove search highlted words
@@ -225,57 +222,57 @@ endfunction
 
 " FZF settings
 " This is the default extra key bindings
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
+"let g:fzf_action = {
+  "\ 'ctrl-t': 'tab split',
+  "\ 'ctrl-x': 'split',
+  "\ 'ctrl-v': 'vsplit' }
 
-" Default fzf layout
-" - down / up / left / right
-let g:fzf_layout = { 'down': '~40%' }
+"" Default fzf layout
+"" - down / up / left / right
+"let g:fzf_layout = { 'down': '~40%' }
 
-" In Neovim, you can set up fzf window using a Vim command
-let g:fzf_layout = { 'window': 'enew' }
-let g:fzf_layout = { 'window': '-tabnew' }
+"" In Neovim, you can set up fzf window using a Vim command
+"let g:fzf_layout = { 'window': 'enew' }
+"let g:fzf_layout = { 'window': '-tabnew' }
 
-" Customize fzf colors to match your color scheme
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+"" Customize fzf colors to match your color scheme
+"let g:fzf_colors =
+"\ { 'fg':      ['fg', 'Normal'],
+  "\ 'bg':      ['bg', 'Normal'],
+  "\ 'hl':      ['fg', 'Comment'],
+  "\ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  "\ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  "\ 'hl+':     ['fg', 'Statement'],
+  "\ 'info':    ['fg', 'PreProc'],
+  "\ 'prompt':  ['fg', 'Conditional'],
+  "\ 'pointer': ['fg', 'Exception'],
+  "\ 'marker':  ['fg', 'Keyword'],
+  "\ 'spinner': ['fg', 'Label'],
+  "\ 'header':  ['fg', 'Comment'] }
 
-" [Files] Extra options for fzf
-"         e.g. File preview using CodeRay (http://coderay.rubychan.de/)
-let g:fzf_files_options =
-  \ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
+"" [Files] Extra options for fzf
+""         e.g. File preview using CodeRay (http://coderay.rubychan.de/)
+"let g:fzf_files_options =
+  "\ '--preview "(coderay {} || cat {}) 2> /dev/null | head -'.&lines.'"'
 
-" [Buffers] Jump to the existing window if possible
-let g:fzf_buffers_jump = 1
+"" [Buffers] Jump to the existing window if possible
+"let g:fzf_buffers_jump = 1
 
-" [[B]Commits] Customize the options used by 'git log':
-let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+"" [[B]Commits] Customize the options used by 'git log':
+"let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
-" [Tags] Command to generate tags file
-let g:fzf_tags_command = 'ctags -R'
+"" [Tags] Command to generate tags file
+"let g:fzf_tags_command = 'ctags -R'
 
-" [Commands] --expect expression for directly executing the command
-let g:fzf_commands_expect = 'alt-enter,ctrl-x'
+"" [Commands] --expect expression for directly executing the command
+"let g:fzf_commands_expect = 'alt-enter,ctrl-x'
 
 " Mapping selecting mappings
-nmap <leader><tab> <plug>(fzf-maps-n)
-xmap <leader><tab> <plug>(fzf-maps-x)
-omap <leader><tab> <plug>(fzf-maps-o)
-nnoremap <silent> <C-c> :Files<CR>
-nnoremap <silent> <leader>a :Buffers<CR>
+"nmap <leader><tab> <plug>(fzf-maps-n)
+"xmap <leader><tab> <plug>(fzf-maps-x)
+"omap <leader><tab> <plug>(fzf-maps-o)
+"nnoremap <silent> <C-c> :Files<CR>
+"nnoremap <silent> <leader>a :Buffers<CR>
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
@@ -297,8 +294,8 @@ let g:UltiSnipsSnippetsDir="/Users/AdamC/.config/nvim/"
 let g:UltiSnipsSnippetDirectories = ["UltiSnips", "snips"]
 
 let g:UltiSnipsExpandTrigger="<C-e>"
-let g:UltiSnipsJumpForwardTrigger="<c-n>"
-let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsUsePythonVersion = 3
 
 " If you want :UltiSnipsEdit to split your window.
@@ -347,5 +344,17 @@ imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
 nmap <F5> <Plug>(JavaComplete-Imports-Add)
 imap <F5> <Plug>(JavaComplete-Imports-Add)
 
-let g:JavaComplete_LibsPath = '/home/adam/school/collins_oshinsky_391s17/HW4_5/lib/Sepia.jar'
-let g:JavaComplete_SourcesPath =  '/home/adam/school/collins_oshinsky_391s17/HW4_5/src/'
+" File exploring settings
+set hidden
+set path+=**
+set path-=**/node_modules/*
+set wildmenu
+set wildignore+=**/node_modules/*
+
+" File exploring shortcuts
+nnoremap <Leader>ft  :NERDTreeToggle<cr>
+nnoremap <Leader>f<space>  :NERDTreeToggle<cr>
+nnoremap <Leader>ff  :find \c
+nnoremap <Leader>fb  :ls<CR>:b 
+nnoremap <Leader>fs  :vsplit<CR>:find \c
+nnoremap <Leader>fi  :split<CR>:find \c
