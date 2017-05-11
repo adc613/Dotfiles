@@ -334,7 +334,7 @@ hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-nnoremap <BS> <C-W><C-H>                " There's a bug with neovim <C-H> return <BS> this is my hack-around
+nnoremap <C-H> <C-W><C-H>
 
 
 " javacomplete2
