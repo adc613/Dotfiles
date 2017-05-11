@@ -358,3 +358,6 @@ nnoremap <Leader>ff  :find \c
 nnoremap <Leader>fb  :ls<CR>:b 
 nnoremap <Leader>fs  :vsplit<CR>:find \c
 nnoremap <Leader>fi  :split<CR>:find \c
+
+" live substitue
+set inccommand=split
