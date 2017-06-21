@@ -293,7 +293,7 @@ let g:acp_enableAtStartup = 0
 let g:UltiSnipsSnippetsDir="/Users/AdamC/.config/nvim/"
 let g:UltiSnipsSnippetDirectories = ["UltiSnips", "snips"]
 
-let g:UltiSnipsExpandTrigger="<C-e>"
+let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsUsePythonVersion = 3
@@ -350,12 +350,13 @@ set path+=**
 set path-=**/node_modules/*
 set wildmenu
 set wildignore+=**/node_modules/*
+set wildignore+=**/lib/*
 
 " File exploring shortcuts
 nnoremap <Leader>ft  :NERDTreeToggle<cr>
 nnoremap <Leader>f<space>  :NERDTreeToggle<cr>
 nnoremap <Leader>ff  :find \c
-nnoremap <Leader>fb  :ls<CR>:b 
+nnoremap <Leader>fb  :ls<CR>:b
 nnoremap <Leader>fs  :vsplit<CR>:find \c
 nnoremap <Leader>fi  :split<CR>:find \c
 

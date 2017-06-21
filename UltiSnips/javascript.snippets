@@ -141,3 +141,20 @@ snippet comment "javascript documentaion"
  * @return {${5:Object}} - ${6:description of param1}
  */
 endsnippet
+
+snippet test-react-jest "basic outline for a react jest test"
+import { shallow, mount, render } from 'enzyme';
+import { should, expect, assert } from 'chai';
+import { fromJS, List, Map } from 'immutable';
+import React from 'react';
+
+import ${1:Test} from '~/${2:path/to/file}'
+
+
+describe("${3:test suite description}", () => {
+
+	test("${4: test description}", () => {
+	});
+
+});
+endsnippet

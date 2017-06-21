@@ -1,0 +1,7 @@
+# vim files
+*.swp
+*.swc
+*.swo
+
+# nothing is ore annoying that puting a node_modules folders your git repository
+node_modules/*
