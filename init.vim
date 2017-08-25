@@ -4,7 +4,9 @@
 
 " top level settings modules
 source ~/.config/nvim/config/plugins/general.vim
-source ~/.config/nvim/config/plugins/glug.vim
+if filereadable("~/.config/nvim/config/plugins/glug.vim")
+  source ~/.config/nvim/config/plugins/glug.vim
+endif
 source ~/.config/nvim/config/settings/general.vim
 
 " plugin specifc settings

@@ -73,7 +73,4 @@ set inccommand=split
 "command Jade !/google/data/ro/teams/jade/jade %
 nnoremap <Leader>jj :Jade<CR>
 
-nnoremap H ^
-nnoremap L $
-
 au BufNewFile,BufRead *.vim set filetype=vim

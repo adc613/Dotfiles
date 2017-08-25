@@ -3,7 +3,7 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 let path="~/.config/nvim/bundle"
-call plug#begin(path)
+call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'bling/vim-airline'                  " Status bar
 Plug 'mkitt/tabline.vim'                  " Displays window tabs
