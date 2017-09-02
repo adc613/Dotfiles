@@ -22,6 +22,7 @@ Plug 'vim-airline/vim-airline-themes'     " Adds a directory of Airline Themes
 Plug 'honza/vim-snippets'                 " more snippets
 Plug 'vim-syntastic/syntastic'            " Google-friendly syntax linter
 Plug 'junegunn/fzf',  { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'bluz71/vim-moonfly-colors'
 
 
 " language specif plugins

@@ -74,3 +74,7 @@ set inccommand=split
 nnoremap <Leader>jj :Jade<CR>
 
 au BufNewFile,BufRead *.vim set filetype=vim
+
+" sets colorscheme and uses true colros
+colorscheme moonfly
+set termguicolors
