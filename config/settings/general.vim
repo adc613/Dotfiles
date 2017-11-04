@@ -84,3 +84,8 @@ onoremap ip( :<C-u>normal! F)vi(<cr>
 
 " Auto save
 inoremap <esc> <esc>:w<cr>
+
+
+" sets colorscheme and uses true colros
+colorscheme moonfly
+set termguicolors
