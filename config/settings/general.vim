@@ -71,10 +71,6 @@ nnoremap <Leader>f#  :b#<CR>
 " live substitue
 set inccommand=split
 
-" Allows me to run Jade in vim
-"command Jade !/google/data/ro/teams/jade/jade %
-nnoremap <Leader>jj :Jade<CR>
-
 au BufNewFile,BufRead *.vim set filetype=vim
 
 " Capitalizes the word that was just written and enters insert mode at the end
