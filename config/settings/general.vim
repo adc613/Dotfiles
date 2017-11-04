@@ -69,10 +69,6 @@ nnoremap <Leader>fi  :split<CR>:find \c
 " live substitue
 set inccommand=split
 
-" Allows me to run Jade in vim
-"command Jade !/google/data/ro/teams/jade/jade %
-nnoremap <Leader>jj :Jade<CR>
-
 au BufNewFile,BufRead *.vim set filetype=vim
 
 " sets colorscheme and uses true colros
