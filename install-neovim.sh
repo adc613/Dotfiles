@@ -32,5 +32,5 @@ fi
 
 mkdir -p ~/config/nvim/
 ln -sf ~/Dotfiles/init.vim ~/.config/nvim/init.vim
-ln -sf ~/Dotfiles/config/ ~/.config/nvim/config/
-ln -sf ~/Dotfiles/UltiSnips/ ~/.config/nvim/UltiSnips/
+ln -sf ~/Dotfiles/config/ ~/.config/nvim/config
+ln -sf ~/Dotfiles/UltiSnips/ ~/.config/nvim/UltiSnips
