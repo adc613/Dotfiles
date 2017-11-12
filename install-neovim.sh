@@ -13,11 +13,11 @@ if [ $(uname -s) = 'Darwin' ]; then
     ln -sf ~/.vim/autoload/plug.vim ~/.config/nvim/autoload/
 elif [ $(uname -s) = "Linux" ]; then
   if [ $(which apt-get) != "" ]; then
-    apt-get install software-properties-common
-    add-apt-repository ppa:neovim-ppa/stable
-    apt-get update
-    apt-get install neovim
-    apt-get install python-dev python-pip python3-dev python3-pip
+    sudo apt-get install software-properties-common
+    sudo add-apt-repository ppa:neovim-ppa/stable
+    sudo apt-get update
+    sudo apt-get install neovim
+    sudo apt-get install python-dev python-pip python3-dev python3-pip
     pip2 install --upgrade neovim
     pip3 install --upgrade neovim
     apt-get install ruby
@@ -30,4 +30,5 @@ else
     echo "After installing, run the following: mkdir ~/.config; ln -s ~/.vim ~/.config/nvim; ln -s ~/.vimrc ~/.config/nvim/init.vim"
 fi
 
+k
 ln -sf ~/Dotfiles/init.vim ~/.config/nvim/init.vim
