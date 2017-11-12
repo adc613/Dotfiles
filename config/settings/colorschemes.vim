@@ -14,3 +14,7 @@ match ExtraWhitespace /\s\+$\|\t/
 hi TabLine      ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineFill  ctermfg=Black  ctermbg=Green     cterm=NONE
 hi TabLineSel   ctermfg=White  ctermbg=DarkBlue  cterm=NONE
+
+" sets colorscheme and uses true colros
+colorscheme moonfly
+set termguicolors

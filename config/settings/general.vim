@@ -23,6 +23,7 @@ autocmd! bufwritepost *.vim source %         " Auto reloads my vimrc on write
 set clipboard=unnamed                           " allows me to copy and past outside of terminal
 
 let mapleader = "\<space>"                      " asign leader to the space key
+let localleader = "\\"                          " assign local leader to \ key
 
 " resize panes
 nnoremap <silent> <Leader>+ :resize +5 <CR>
@@ -57,6 +58,7 @@ set path-=**/node_modules/*
 set wildmenu
 set wildignore+=**/node_modules/*
 set wildignore+=**/lib/*
+set wildignore+=**/coverage/*
 
 " File exploring shortcuts
 nnoremap <Leader>ft  :tabnew<cr>:find \c
@@ -65,11 +67,23 @@ nnoremap <Leader>ff  :find \c
 nnoremap <Leader>fb  :ls<CR>:b
 nnoremap <Leader>fs  :vsplit<CR>:find \c
 nnoremap <Leader>fi  :split<CR>:find \c
+nnoremap <Leader>fv  :find ~/.config/nvim/init.vim
+nnoremap <Leader>f#  :b#<CR>
 
 " live substitue
 set inccommand=split
 
 au BufNewFile,BufRead *.vim set filetype=vim
+
+" Capitalizes the word that was just written and enters insert mode at the end
+" of the word
+inoremap <C-u> <esc>hviwUea
+
+" movement command highlight the text inside he next parenthesis
+onoremap in( :<C-u>normal! f(vi)<cr>
+" movement command highlight the text inside he previous parenthesis
+onoremap ip( :<C-u>normal! F)vi(<cr>
+
 
 " sets colorscheme and uses true colros
 colorscheme moonfly
