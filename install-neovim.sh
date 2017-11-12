@@ -20,8 +20,8 @@ elif [ $(uname -s) = "Linux" ]; then
     sudo apt-get install python-dev python-pip python3-dev python3-pip
     pip2 install --upgrade neovim
     pip3 install --upgrade neovim
-    apt-get install ruby
-    apt-get install ruby-all-dev
+    sudo apt-get install ruby
+    sudo apt-get install ruby-all-dev
     gem install neovim
   fi
 else
