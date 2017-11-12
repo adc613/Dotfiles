@@ -1,5 +1,6 @@
 #/bin/bash
 
+mkdir -p ~/config/nvim/
 # macOS-specific installations.
 if [ $(uname -s) = 'Darwin' ]; then
     # Install neovim and python support dependencies.
@@ -28,7 +29,6 @@ else
     echo "Get a real OS"
 fi
 
-mkdir -p ~/config/nvim/
 ln -sf ~/Dotfiles/init.vim ~/.config/nvim/init.vim
 ln -sf ~/Dotfiles/config/ ~/.config/nvim/config
 ln -sf ~/Dotfiles/UltiSnips/ ~/.config/nvim/UltiSnips
