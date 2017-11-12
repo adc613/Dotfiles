@@ -30,5 +30,7 @@ else
     echo "After installing, run the following: mkdir ~/.config; ln -s ~/.vim ~/.config/nvim; ln -s ~/.vimrc ~/.config/nvim/init.vim"
 fi
 
-k
+mkdir -p ~/config/nvim/
 ln -sf ~/Dotfiles/init.vim ~/.config/nvim/init.vim
+ln -sf ~/Dotfiles/config/ ~/.config/nvim/config/
+ln -sf ~/Dotfiles/UltiSnips/ ~/.config/nvim/UltiSnips/
