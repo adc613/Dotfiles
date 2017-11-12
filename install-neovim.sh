@@ -13,9 +13,13 @@ if [ $(uname -s) = 'Darwin' ]; then
     ln -sf ~/.vim/autoload/plug.vim ~/.config/nvim/autoload/
 elif [ $(uname -s) = "Linux" ]; then
   if [ $(which apt-get) != "" ]; then
+    apt-get install software-properties-common
+    add-apt-repository ppa:neovim-ppa/stable
+    apt-get update
     apt-get install neovim
-    apt-get install python-neovim
-    apt-get install python3-neovim
+    apt-get install python-dev python-pip python3-dev python3-pip
+    pip2 install --upgrade neovim
+    pip3 install --upgrade neovim
   fi
 else
     echo "Neovim installation is currently only supported on macOS"
