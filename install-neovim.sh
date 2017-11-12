@@ -22,7 +22,7 @@ elif [ $(uname -s) = "Linux" ]; then
     pip3 install --upgrade neovim
     sudo apt-get install ruby
     sudo apt-get install ruby-all-dev
-    gem install neovim
+    sudo gem install neovim
   fi
 else
     echo "Neovim installation is currently only supported on macOS"
