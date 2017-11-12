@@ -20,9 +20,14 @@ elif [ $(uname -s) = "Linux" ]; then
     apt-get install python-dev python-pip python3-dev python3-pip
     pip2 install --upgrade neovim
     pip3 install --upgrade neovim
+    apt-get install ruby
+    apt-get install ruby-all-dev
+    gem install neovim
   fi
 else
     echo "Neovim installation is currently only supported on macOS"
     echo "To install Neovim manually on other operating systems, refer to github.com/neovim/neovim/wiki/Installing-Neovim"
     echo "After installing, run the following: mkdir ~/.config; ln -s ~/.vim ~/.config/nvim; ln -s ~/.vimrc ~/.config/nvim/init.vim"
 fi
+
+ln -sf ~/Dotfiles/init.vim ~/.config/nvim/init.vim
