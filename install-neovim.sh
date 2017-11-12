@@ -14,7 +14,7 @@ if [ "$1" = "--nvim" ]; then
         ln -sf $SETUP_DIR/vimrc ~/.config/nvim/init.vim
         ln -sf ~/.vim/autoload/plug.vim ~/.config/nvim/autoload/
     elif [$(uname -s) = "Linux"]; then
-      if [$(which apt-get) = "/usr/bin/apt-get"]; then
+      if [$(which apt-get) != ""]; then
         apt-get install neovim
         apt-get install python-neovim
         apt-get install python3-neovim
