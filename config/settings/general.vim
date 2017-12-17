@@ -14,6 +14,7 @@ set smartcase                           " becomes case sensitive once you use a 
 set hlsearch                            " highlights search
 set incsearch                           " searches while typing
 set foldmethod=indent                   " fold code based on indenting level
+set foldlevel=0                         " sets foldlevel to 0, all folds closed
 
 
 filetype indent on                              " Not sure what this does
@@ -67,7 +68,8 @@ nnoremap <Leader>ff  :find \c
 nnoremap <Leader>fb  :ls<CR>:b
 nnoremap <Leader>fs  :vsplit<CR>:find \c
 nnoremap <Leader>fi  :split<CR>:find \c
-nnoremap <Leader>fv  :find ~/.config/nvim/init.vim
+nnoremap <Leader>fv  :find ~/.config/nvim/config/settings/general.vim<CR>
+nnoremap <Leader>fp  :find ~/.config/nvim/config/plugins/general.vim<CR>
 nnoremap <Leader>f#  :b#<CR>
 
 " live substitue
@@ -88,3 +90,6 @@ onoremap ip( :<C-u>normal! F)vi(<cr>
 " sets colorscheme and uses true colros
 colorscheme moonfly
 set termguicolors
+
+set undofile " Maintain undo history between sessions
+set undodir=~/.undo
