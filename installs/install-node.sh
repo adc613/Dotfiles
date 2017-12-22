@@ -2,7 +2,8 @@
 
 # macOS-specific installations.
 if [ $(uname -s) = 'Darwin' ]; then
-  echo "mac OS unsupported"
+  brew install node
+  brew install yarn
 elif [ $(uname -s) = "Linux" ]; then
   if [ $(which apt-get) != "" ]; then
     sudo apt-get install -y build-essential

@@ -4,8 +4,11 @@
 if [ $(uname -s) = 'Darwin' ]; then
     # Install neovim and python support dependencies.
     brew install neovim
+    brew install python
+    brew install python3
     pip2 install --user neovim
     pip3 install --user neovim
+    sudo gem install neovim
 
     # Link vim configuration to neovim.
     mkdir -p ~/.config/nvim/autoload
