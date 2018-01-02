@@ -18,6 +18,7 @@ source ~/.config/nvim/config/plugin_settings/deoplete.vim
 source ~/.config/nvim/config/plugin_settings/ultisnips.vim
 source ~/.config/nvim/config/plugin_settings/airline.vim
 source ~/.config/nvim/config/plugin_settings/fzf.vim
+source ~/.config/nvim/config/plugin_settings/anyfold.vim
 
 " file specific settings
 autocmd FileType css source ~/.config/nvim/config/settings/css.vim
