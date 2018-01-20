@@ -1,6 +1,6 @@
 " Adam Collins
 " adc613@gmail.com
-" Welcome to my beautiful and continuously evolving .vimrc
+" Welcome to my .vimrc
 
 " top level settings modules
 source ~/.config/nvim/config/plugins/general.vim

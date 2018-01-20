@@ -73,24 +73,18 @@ endsnippet
 
 snippet action "redux action"
 export function ${1:some}Action(${2:payload}) {
-
 	return {
 		type: ${3:SOME},
 		payload:{
 			$2
 		}
 	};
-
 }
 
 export function $1($2) {
-
 	return (dispatch, getState) => {
-
 		dispatch($1Action($2));
-
 	};
-
 }
 endsnippet
 
