@@ -9,7 +9,7 @@ Plug 'bling/vim-airline'                  " Status bar
 Plug 'mkitt/tabline.vim'                  " Displays window tabs
 Plug 'Townk/vim-autoclose'                " Automatically closes parenthesis and quores
 Plug 'docunext/closetag.vim'              " Closes html tags when I type </
-Plug 'scrooloose/nerdtree'                " File explorer
+"Plug 'scrooloose/nerdtree'                " File explorer
 Plug 'scrooloose/nerdcommenter'           " Easy commenting and uncommenting
 Plug 'tpope/vim-fugitive'                 " Git integration
 Plug 'tpope/vim-surround'                 " Allows easy surrounding of words and text in quotes and such
@@ -21,11 +21,12 @@ Plug 'neomake/neomake'                    " Async job handling (for linters, rep
 Plug 'vim-airline/vim-airline-themes'     " Adds a directory of Airline Themes
 Plug 'honza/vim-snippets'                 " more snippets
 Plug 'vim-syntastic/syntastic'            " Google-friendly syntax linter
-Plug 'junegunn/fzf',  { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf',  { 'dir': '~/.fzf', 'do': './install --all' } " Fuzy file finder
 Plug 'bluz71/vim-moonfly-colors'          " a colorscheme
-Plug 'mbbill/undotree'                     " A plugin for visualizing VIM's undo/redo tree
-Plug 'pseewald/vim-anyfold'
-
+Plug 'mbbill/undotree'                    " A plugin for visualizing VIM's undo/redo tree
+Plug 'pseewald/vim-anyfold'               " Fold syling
+Plug 'mhinz/vim-signify'                  " Version control visualization
+Plug 'jparise/vim-graphql'                " GrqphQL highlighting
 
 " language specif plugins
 source ~/.config/nvim/config/plugins/java.vim

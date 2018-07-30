@@ -59,15 +59,17 @@ set path-=**/node_modules/*
 set wildmenu
 set wildignore+=**/node_modules/*
 set wildignore+=**/lib/*
+set wildignore+=**/ignore/*
+set wildignore+=**/flow-typed/*
 set wildignore+=**/coverage/*
 
 " File exploring shortcuts
-nnoremap <Leader>ft  :tabnew<cr>:find \c
-nnoremap <Leader>f<space>  :NERDTreeToggle<cr>
-nnoremap <Leader>ff  :find \c
-nnoremap <Leader>fb  :ls<CR>:b
-nnoremap <Leader>fs  :vsplit<CR>:find \c
-nnoremap <Leader>fi  :split<CR>:find \c
+nnoremap <Leader>ft  :tabnew<cr>:find<space>
+nnoremap <Leader>f<space>  :Explore<cr>
+nnoremap <Leader>ff  :find<space>
+nnoremap <Leader>fb  :ls<CR>:b<space>
+nnoremap <Leader>fs  :vsplit<CR>:find<space>
+nnoremap <Leader>fi  :split<CR>:find<space>
 nnoremap <Leader>fv  :find ~/.config/nvim/config/settings/general.vim<CR>
 nnoremap <Leader>fp  :find ~/.config/nvim/config/plugins/general.vim<CR>
 nnoremap <Leader>f#  :b#<CR>
