@@ -57,8 +57,6 @@ set hidden
 set path+=**
 set path-=**/node_modules/*
 set wildmenu
-set wildignore+=**/node_modules/*
-set wildignore+=**/lib/*
 set wildignore+=**/ignore/*
 set wildignore+=**/flow-typed/*
 set wildignore+=**/coverage/*

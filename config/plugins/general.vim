@@ -24,7 +24,7 @@ Plug 'vim-syntastic/syntastic'            " Google-friendly syntax linter
 Plug 'junegunn/fzf',  { 'dir': '~/.fzf', 'do': './install --all' } " Fuzy file finder
 Plug 'bluz71/vim-moonfly-colors'          " a colorscheme
 Plug 'mbbill/undotree'                    " A plugin for visualizing VIM's undo/redo tree
-Plug 'pseewald/vim-anyfold'               " Fold syling
+" Plug 'pseewald/vim-anyfold'               " Fold syling
 Plug 'mhinz/vim-signify'                  " Version control visualization
 Plug 'jparise/vim-graphql'                " GrqphQL highlighting
 

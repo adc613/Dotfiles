@@ -25,3 +25,5 @@ autocmd FileType css source ~/.config/nvim/config/settings/css.vim
 autocmd FileType html source ~/.config/nvim/config/settings/html.vim
 autocmd FileType markdown source ~/.config/nvim/config/settings/markdown.vim
 autocmd FileType python source ~/.config/nvim/config/settings/python.vim
+autocmd FileType javascript source ~/.config/nvim/config/settings/javascript.vim
+autocmd FileType elixir source ~/.config/nvim/config/settings/elixir.vim

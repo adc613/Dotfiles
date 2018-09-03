@@ -361,7 +361,9 @@ menu-0-1-exec = menu-open-2
 menu-0-2 = suspend
 menu-0-2-exec = menu-open-3
 menu-0-3 = lock
-menu-0-3-exec = i3lock -c 000000 && xset dpms force off
+# TODO fix xset bug
+# menu-0-3-exec = i3lock -c 000000 && xset dpms force off
+menu-0-3-exec = lock
 
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
@@ -376,7 +378,7 @@ menu-2-1-exec = sudo shutdown
 menu-3-0 = cancel
 menu-3-0-exec = menu-open-0
 menu-3-1 = suspend
-menu-3-1-exec = i3lock -c 000000 && systemctl suspend
+menu-3-1-exec = /home/adam/bin/suspend
 
 [module/cmus-time]
 type = custom/script
