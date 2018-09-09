@@ -1,5 +1,6 @@
 #/bin/bash
 
+
 # macOS-specific installations.
 if [ $(uname -s) = 'Darwin' ]; then
     # Install neovim and python support dependencies.
@@ -15,7 +16,10 @@ if [ $(uname -s) = 'Darwin' ]; then
     ln -sf $SETUP_DIR/vimrc ~/.config/nvim/init.vim
     ln -sf ~/.vim/autoload/plug.vim ~/.config/nvim/autoload/
 elif [ $(uname -s) = "Linux" ]; then
-  if [ $(which apt-get) != "" ]; then
+  echo "What OS are you using? (ubuntu, arch)"
+  read os
+
+  if [ $os = "ubuntu" ]; then
     sudo apt-get install software-properties-common
     sudo add-apt-repository ppa:neovim-ppa/stable
     sudo apt-get update
@@ -26,6 +30,12 @@ elif [ $(uname -s) = "Linux" ]; then
     sudo apt-get install ruby
     sudo apt-get install ruby-all-dev
     sudo gem install neovim
+  elif [ $os = "arch" ]; then
+    echo "Hello Arch \n"
+    sudo pacman -Sy neovim
+    sudo pacman -Sy python2-neovim python-neovim ruby nodejs npm
+    gem install neovim
+    sudo npm install -g neovim
   fi
 else
     echo "Get a real OS"
