@@ -1,0 +1,35 @@
+!! Extensions
+URxvt.perl-ext-common: default,matcher,url-select,keyboard-select
+
+!! url-select
+URxvt.keysym.M-l: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/mimeo
+URxvt.url-select.underline: true
+
+!!keyboar-select
+URxvt.keysym.M-f: perl:keyboard-select:activate
+URxvt.keyboard-select.clipboard: true
+
+URxvt.scrollBar:false
+!! Colorsxdg-open
+urxvt*foreground:white
+urxvt*background:black
+
+URxvt*font:           xft:Inconsolata:size=10
+
+*color0: #2E3436
+*color1: #a40000
+*color2: #4E9106
+*color3: #CFA000
+*color4: #3465A4
+*color5: #75507B
+*color6: #ce5c00
+*color7: #babdb9
+*color8: #555753
+*color9: #EF2929
+*color10: #8AE234
+*color11: #FCE94F
+*color12: #729FCF
+*color13: #AD7FA8
+*color14: #FCAF3E
+*color15: #EEEEEC

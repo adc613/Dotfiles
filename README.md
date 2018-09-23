@@ -20,6 +20,10 @@ Welcome to my Dotfiles.
   I try to write install scripts for some of my favorite Linux tools. These
   files may not be up to date. Proceed with caution.
 
+# Terminal [Urxvt](https://wiki.archlinux.org/index.php/Rxvt-unicode)
+  
+  I use Urxvt, the terminal settings are in my [.Xresources](.Xresources) file.
+
 # Vanilla settings (deprecated) [vanilla_settings/](vanilla_settings)
   
   Basic settings that don't rely on plugins, useful for quickly setting up a
