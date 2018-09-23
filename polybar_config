@@ -9,7 +9,7 @@
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #222
+background = #111
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
@@ -21,9 +21,8 @@ alert = #bd2c40
 [bar/example]
 monitor = ${env:MONITOR:}
 width = 100%
-height = 27
-;offset-x = 1%
-;offset-y = 1%
+height = 32
+offset-y = 0%
 radius = 6.0
 fixed-center = false
 
@@ -33,7 +32,7 @@ foreground = ${colors.foreground}
 line-size = 3
 line-color = #f00
 
-border-size = 4
+border-size = 0
 border-color = #00000000
 
 padding-left = 0
@@ -46,15 +45,12 @@ module-margin-right = 2
 ;font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 ;font-2 = siji:pixelsize=10;1
 
-font-0 = "Tamsyn:pixelsize=10;0"
-font-1 = "Roboto:size=9:weight=bold;2"
-font-2 = "Noto Sans:size=9;1"
-font-3 = "Font Awesome 5 Free:style=Solid;pixelsize=8;1"
-font-4 = "Font Awesome 5 Brands:style=Regular;pixelsize=8;1"
-font-5 = "Font Awesome 5 Free:style=Regular;1"
+font-0 = "Roboto:size=10:"
+font-1 = "Noto Sans:size=9;1"
+font-2 = FontAwesome:size=10;0
 
 modules-left = i3
-modules-center = vpn-on vpn-off network-up network-down memory cpu filesystem
+modules-center = network-up network-down memory cpu filesystem
 modules-right = cmus-repeat-off cmus-repeat-on cmus-title cmus-artist cmus-time date powermenu
 
 tray-position = right
@@ -82,8 +78,8 @@ bottom = true
 type = internal/fs
 interval = 25
 
-mount-0 = /
-mount-1 = /home/mass
+mount-0 = /home
+mount-1 = /
 
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%% of %total%
 label-mounted-underline= #0a6cf5
@@ -349,8 +345,7 @@ expand-right = true
 
 format-spacing = 1
 
-# label-open =  Power
-label-open = ⏻⏻ Power
+label-open =  Power
 label-open-foreground = ${colors.secondary}
 label-close =  Close
 label-close-foreground = ${colors.secondary}
@@ -366,7 +361,7 @@ menu-0-2-exec = menu-open-3
 menu-0-3 = lock
 # TODO fix xset bug
 # menu-0-3-exec = i3lock -c 000000 && xset dpms force off
-menu-0-3-exec = betterlockscreen -l
+menu-0-3-exec = /home/adam/bin/lock
 
 menu-1-0 = cancel
 menu-1-0-exec = menu-open-0
@@ -381,7 +376,7 @@ menu-2-1-exec = sudo shutdown
 menu-3-0 = cancel
 menu-3-0-exec = menu-open-0
 menu-3-1 = suspend
-menu-3-1-exec = betterlockscreen -s
+menu-3-1-exec = /home/adam/bin/suspend
 
 [module/cmus-time]
 type = custom/script
