@@ -28,3 +28,10 @@ Welcome to my Dotfiles.
   
   Basic settings that don't rely on plugins, useful for quickly setting up a
   new server, but I haven't updated or use them in a long time.
+
+# OS of choice
+  
+  For personal use. I'm a sucker of [Arch Linux](https://www.archlinux.org/)
+
+  ### Latest desktop screenshot:
+  ![Screenshot of my desktop](desktop.png)
