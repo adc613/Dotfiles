@@ -17,16 +17,20 @@ Plug 'godlygeek/tabular'                  " Don't know what this is or how it go
 Plug 'simeji/winresizer'                  " Easy window resizing
 Plug 'vim-scripts/RangeMacro'             " Easily applies macro to a range of lines
 Plug 'SirVer/ultisnips'                   " Gotta love your snippets
-Plug 'neomake/neomake'                    " Async job handling (for linters, replaces Syntastic)
 Plug 'vim-airline/vim-airline-themes'     " Adds a directory of Airline Themes
 Plug 'honza/vim-snippets'                 " more snippets
-Plug 'vim-syntastic/syntastic'            " Google-friendly syntax linter
 Plug 'junegunn/fzf',  { 'dir': '~/.fzf', 'do': './install --all' } " Fuzy file finder
 Plug 'bluz71/vim-moonfly-colors'          " a colorscheme
 Plug 'mbbill/undotree'                    " A plugin for visualizing VIM's undo/redo tree
 " Plug 'pseewald/vim-anyfold'               " Fold syling
 Plug 'mhinz/vim-signify'                  " Version control visualization
 Plug 'jparise/vim-graphql'                " GrqphQL highlighting
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+" Also add Glaive, which is used to configure codefmt's maktaba flags. See
+" `:help :Glaive` for usage.
+Plug 'google/vim-glaive'
 
 " language specif plugins
 source ~/.config/nvim/config/plugins/java.vim
@@ -34,6 +38,7 @@ source ~/.config/nvim/config/plugins/javascript.vim
 source ~/.config/nvim/config/plugins/python.vim
 source ~/.config/nvim/config/plugins/markdown.vim
 source ~/.config/nvim/config/plugins/elixir.vim
+source ~/.config/nvim/config/plugins/latex.vim
 " source ~/.config/nvim/config/plugins/solidity.vim
 
 function! DoRemote(arg)

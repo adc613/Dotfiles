@@ -10,6 +10,10 @@ URxvt.url-select.underline: true
 URxvt.keysym.M-f: perl:keyboard-select:activate
 URxvt.keyboard-select.clipboard: true
 
+URxvt.keysym.M-c: eval:selection_to_clipboard
+URxvt.keysym.M-v: eval:paste_clipboard
+URxvt.keysym.M-V: eval:paste_primary
+
 URxvt.scrollBar:false
 !! Colorsxdg-open
 urxvt*foreground:white
