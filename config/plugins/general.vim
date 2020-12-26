@@ -38,14 +38,14 @@ source ~/.config/nvim/config/plugins/javascript.vim
 source ~/.config/nvim/config/plugins/python.vim
 source ~/.config/nvim/config/plugins/markdown.vim
 source ~/.config/nvim/config/plugins/elixir.vim
-source ~/.config/nvim/config/plugins/latex.vim
+" source ~/.config/nvim/config/plugins/latex.vim
 " source ~/.config/nvim/config/plugins/solidity.vim
 
-function! DoRemote(arg)
-UpdateRemotePlugins
-endfunction
+"function! DoRemote(arg)
+"UpdateRemotePlugins
+"endfunction
 
-Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }     " Async autocomplete
+"Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }     " Async autocomplete
 
 call plug#end()              " required
 filetype plugin indent on    " required

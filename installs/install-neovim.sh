@@ -47,3 +47,18 @@ ln -sf ~/Dotfiles/config/ ~/.config/nvim/config
 ln -sf ~/Dotfiles/UltiSnips/ ~/.config/nvim/UltiSnips
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -sL https://deb.nodesource.com/setup_current.x | sudo -E bash -
+
+# Install node for plugins
+sudo apt-get update && sudo apt-get install -y nodejs yarn
+sudo npm install -g neovim
+
+# Install python plugins stuff
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3 get-pip.py
+pip install neovim
+python2 get-pip.py
+sudo apt install -y python2
+
+# Ruby plugins stuf
+sudo gem install neovim
