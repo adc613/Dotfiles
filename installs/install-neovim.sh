@@ -45,6 +45,7 @@ mkdir -p ~/.config/nvim/
 ln -sf ~/Dotfiles/init.vim ~/.config/nvim/init.vim
 ln -sf ~/Dotfiles/config/ ~/.config/nvim/config
 ln -sf ~/Dotfiles/UltiSnips/ ~/.config/nvim/UltiSnips
+ln -sf ~/Dotfiles/coc-settings.json ~/.config/nvim/coc-settings.json
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 curl -sL https://deb.nodesource.com/setup_current.x | sudo -E bash -
