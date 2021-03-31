@@ -7,9 +7,10 @@ if [ $(uname -s) = 'Darwin' ]; then
     brew install neovim
     brew install python
     brew install python3
+    sudo gem install neovim
+    npm install -g neovim
     pip2 install --user neovim
     pip3 install --user neovim
-    sudo gem install neovim
 
     # Link vim configuration to neovim.
     mkdir -p ~/.config/nvim/autoload
@@ -30,6 +31,10 @@ elif [ $(uname -s) = "Linux" ]; then
     sudo apt-get install ruby
     sudo apt-get install ruby-all-dev
     sudo gem install neovim
+
+    # Install node for plugins
+    sudo apt-get update && sudo apt-get install -y nodejs yarn
+    sudo apt install -y python2
   elif [ $os = "arch" ]; then
     echo "Hello Arch \n"
     sudo pacman -Sy neovim
@@ -50,16 +55,14 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 curl -sL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 
-# Install node for plugins
-sudo apt-get update && sudo apt-get install -y nodejs yarn
+# Ruby plugins stuf
+sudo gem install neovim
 sudo npm install -g neovim
 
 # Install python plugins stuff
-curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-python3 get-pip.py
-pip install neovim
-python2 get-pip.py
-sudo apt install -y python2
-
-# Ruby plugins stuf
-sudo gem install neovim
+# I don't trust this code. I think its outdated but I want to preserve references
+# for future me
+#curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+#python3 get-pip.py
+#pip install neovim
+#python2 get-pip.py
