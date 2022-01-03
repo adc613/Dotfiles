@@ -43,7 +43,7 @@ vnoremap < <gv
 vnoremap > >gv
 
 " unhighlights works
-nnoremap <CR> :noh <cr>
+nnoremap <Leader><CR> :noh <cr>
 
 " move between pane using control keys and H,J,K,L
 nnoremap <C-J> <C-W><C-J>
@@ -54,12 +54,12 @@ nnoremap <C-H> <C-W><C-H>
 
 " File exploring settings
 set hidden
-set path+=**
 set path-=**/node_modules/*
 set wildmenu
 set wildignore+=**/ignore/*
 set wildignore+=**/flow-typed/*
 set wildignore+=**/coverage/*
+set wildignore+=**/node_modules/*
 
 " File exploring shortcuts
 nnoremap <Leader>ft  :tabnew<cr>:find<space>
@@ -88,8 +88,9 @@ onoremap ip( :<C-u>normal! F)vi(<cr>
 
 
 " sets colorscheme and uses true colros
-colorscheme moonfly
-set termguicolors
+set termguicolors     " enable true colors support
+let ayucolor="dark" 
+colorscheme ayu
 
 set undofile " Maintain undo history between sessions
 set undodir=~/.undo
