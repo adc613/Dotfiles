@@ -30,17 +30,13 @@ elif [ $(uname -s) = "Linux" ]; then
     pip3 install --upgrade neovim
     sudo apt-get install ruby
     sudo apt-get install ruby-all-dev
-    sudo gem install neovim
 
     # Install node for plugins
     sudo apt-get update && sudo apt-get install -y nodejs yarn
     sudo apt install -y python2
   elif [ $os = "arch" ]; then
     echo "Hello Arch \n"
-    sudo pacman -Sy neovim
-    sudo pacman -Sy python2-neovim python-neovim ruby nodejs npm
-    gem install neovim
-    sudo npm install -g neovim
+    sudo pacman -Sy neovim python-neovim ruby nodejs npm python-pip
   fi
 else
     echo "Get a real OS"
@@ -58,11 +54,4 @@ curl -sL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 # Ruby plugins stuf
 sudo gem install neovim
 sudo npm install -g neovim
-
-# Install python plugins stuff
-# I don't trust this code. I think its outdated but I want to preserve references
-# for future me
-#curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-#python3 get-pip.py
-#pip install neovim
-#python2 get-pip.py
+pip install pynvim --upgrade
