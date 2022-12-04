@@ -6,7 +6,7 @@ elif [ $(uname -s) = "Linux" ]; then
   read os
 
   if [ $os = "ubuntu" ]; then
-    echo "Debian distros unsupported"
+    sudo apt install tmux
   elif [ $os = "arch" ]; then
     sudo pacman -Sy tmux
   fi
