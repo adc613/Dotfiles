@@ -36,7 +36,7 @@ font-1 = "Noto Sans:size=9;1"
 font-2 = FontAwesome:size=10;0
 
 modules-left = i3
-modules-center = network-up network-down memory cpu filesystem
+modules-center = network-up network-down memory cpu battery filesystem
 modules-right = cmus-repeat-off cmus-repeat-on cmus-title cmus-artist cmus-time date powermenu
 
 tray-position = right
@@ -47,12 +47,39 @@ cursor-scroll = ns-resize
 
 bottom = true
 
+[module/battery]
+type = internal/battery
+
+; This is useful in case the battery never reports 100% charge
+; Default: 100
+full-at = 99
+
+; format-low once this charge percentage is reached
+; Default: 10
+; New in version 3.6.0
+low-at = 5
+
+; Use the following command to list batteries and adapters:
+; $ ls -1 /sys/class/power_supply/
+battery = BAT0
+adapter = ADP1
+
+; If an inotify event haven't been reported in this many
+; seconds, manually poll for new values.
+;
+; Needed as a fallback for systems that don't report events
+; on sysfs/procfs.
+;
+; Disable polling by setting the interval to 0.
+;
+; Default: 5
+poll-interval = 5
+
 [module/filesystem]
 type = internal/fs
 interval = 25
 
-mount-0 = /home
-mount-1 = /
+mount-0 = /
 
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%% of %total%
 label-mounted-underline= #0a6cf5
@@ -304,7 +331,6 @@ format-prefix-foreground = #5b
 
 [module/powermenu]
 type = custom/menu
-boto:size=11:weight=bold;2"
 font-2 = "Noto Sans:size=11;1""
 font-3 = FontAwesome:size=10;0
 
@@ -312,7 +338,7 @@ expand-right = true
 
 format-spacing = 1
 
-label-open =  Power
+label-open =  Menu
 label-open-foreground = ${colors.secondary}
 label-close =  Close
 label-close-foreground = ${colors.secondary}
