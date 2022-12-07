@@ -347,13 +347,11 @@ label-separator-foreground = ${colors.foreground-alt}
 
 menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
-menu-0-1 = power off
+menu-0-1 = shutdown
 menu-0-1-exec = menu-open-2
 menu-0-2 = suspend
-menu-0-2-exec = menu-open-3
+menu-0-2-exec = /home/adam/bin/suspend
 menu-0-3 = lock
-# TODO fix xset bug
-# menu-0-3-exec = i3lock -c 000000 && xset dpms force off
 menu-0-3-exec = /home/adam/bin/lock
 
 menu-1-0 = cancel
@@ -363,13 +361,9 @@ menu-1-1-exec = reboot
 
 menu-2-0 = cancel
 menu-2-0-exec = menu-open-0
-menu-2-1 = power off
-menu-2-1-exec = sudo shutdown
+menu-2-1 = shutdown
+menu-2-1-exec = shutdown
 
-menu-3-0 = cancel
-menu-3-0-exec = menu-open-0
-menu-3-1 = suspend
-menu-3-1-exec = /home/adam/bin/suspend
 
 [module/cmus-time]
 type = custom/script
