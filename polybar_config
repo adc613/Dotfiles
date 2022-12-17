@@ -13,7 +13,7 @@ width = 100%
 height = 32
 offset-y = 0%
 radius = 6.0
-fixed-center = false
+fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -24,20 +24,20 @@ line-color = #f00
 border-size = 0
 border-color = #00000000
 
-padding-left = 0
+padding-left = 2
 padding-right = 2
 
 module-margin-left = 1
 module-margin-right = 2
 
-
 font-0 = "Roboto:size=10:"
 font-1 = "Noto Sans:size=9;1"
-font-2 = FontAwesome:size=10;0
+font-2 = "Font Awesome 6 Free:style=Regular:size=10;0"
+font-3 = FontAwesome:style=Regular:size=10;0
 
-modules-left = i3
-modules-center = network-up network-down memory cpu battery filesystem
-modules-right = cmus-repeat-off cmus-repeat-on cmus-title cmus-artist cmus-time date powermenu
+modules-left = launcher i3 
+modules-center = memory cpu battery filesystem wireless-network 
+modules-right = date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -50,30 +50,102 @@ bottom = true
 [module/battery]
 type = internal/battery
 
-; This is useful in case the battery never reports 100% charge
-; Default: 100
-full-at = 99
+; see "man date" for details on how to format the time string
+; NOTE: if you want to use syntax tags here you need to use %%{...}
+; Default: %H:%M:%S
+time-format = %H:%M
 
-; format-low once this charge percentage is reached
-; Default: 10
+; Available tags:
+;   <label-charging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-charging>
+format-charging = <animation-charging> <label-charging>
+
+; Available tags:
+;   <label-discharging> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;   <animation-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+; Available tags:
+;   <label-full> (default)
+;   <bar-capacity>
+;   <ramp-capacity>
+;format-full = <ramp-capacity> <label-full>
+
+; Format used when battery level drops to low-at
+; If not defined, format-discharging is used instead.
+; Available tags:
+;   <label-low>
+;   <animation-low>
+;   <bar-capacity>
+;   <ramp-capacity>
 ; New in version 3.6.0
-low-at = 5
+;format-low = <label-low> <animation-low>
 
-; Use the following command to list batteries and adapters:
-; $ ls -1 /sys/class/power_supply/
-battery = BAT0
-adapter = ADP1
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current charge rate in watts)
+label-charging = %percentage%%
 
-; If an inotify event haven't been reported in this many
-; seconds, manually poll for new values.
-;
-; Needed as a fallback for systems that don't report events
-; on sysfs/procfs.
-;
-; Disable polling by setting the interval to 0.
-;
-; Default: 5
-poll-interval = 5
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+label-discharging = %percentage%%
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+label-full = Fully charged
+
+; Available tokens:
+;   %percentage% (default) - is set to 100 if full-at is reached
+;   %percentage_raw%
+;   %time%
+;   %consumption% (shows current discharge rate in watts)
+; New in version 3.6.0
+label-low = BATTERY LOW
+
+; Only applies if <ramp-capacity> is used
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+; Only applies if <bar-capacity> is used
+bar-capacity-width = 10
+
+; Only applies if <animation-charging> is used
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+; Framerate in milliseconds
+animation-charging-framerate = 750
+
+; Only applies if <animation-discharging> is used
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-3 = 
+animation-discharging-4 = 
+; Framerate in milliseconds
+animation-discharging-framerate = 500
+
+; Only applies if <animation-low> is used
+; New in version 3.6.0
+animation-low-0 = !
+animation-low-1 = 
+animation-low-framerate = 200
+
 
 [module/filesystem]
 type = internal/fs
@@ -81,8 +153,7 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%% of %total%
-label-mounted-underline= #0a6cf5
+label-mounted =  %free%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -166,15 +237,73 @@ card = intel_backlight
 type = internal/cpu
 interval = 1
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
-label = %percentage:2%%
+label =   %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 1
+format = <label>
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
-label = %percentage_used%%
+label =  %percentage_used%%
+
+[module/wireless-network]
+type = internal/network
+interface = wlp0s20f3
+
+; Available tags:
+;   <label-connected> (default)
+;   <ramp-signal>
+format-connected = <ramp-signal> <label-connected>
+
+; Available tags:
+;   <label-disconnected> (default)
+format-disconnected = <label-disconnected>
+
+; Available tags:
+;   <label-connected> (default)
+;   <label-packetloss>
+;   <animation-packetloss>
+format-packetloss = <animation-packetloss> <label-connected>
+
+; All labels support the following tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %local_ip6% [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %netspeed%  [wireless+wired] (%upspeed% + %downspeed%) (New in version 3.6.0)
+;   %linkspeed% [wired]
+;   %mac%       [wireless+wired] (New in version 3.6.0)
+
+; Default: %ifname% %local_ip%
+label-connected = %signal% %essid% 
+label-connected-foreground = #eefafa
+
+; Default: (none)
+label-disconnected = not connected
+label-disconnected-foreground = #66ffff
+
+; Default: (none)
+;label-packetloss = %essid%
+;label-packetloss-foreground = #eefafafa
+
+; Only applies if <ramp-signal> is used
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-5 = 
+
+; Only applies if <animation-packetloss> is used
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
 
 [module/network-up]
 type = internal/network
@@ -307,127 +436,22 @@ time = %H:%M
 time-alt = %H:%M:%S
 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
 
 label = %date% %time%
 
-[module/vpn-on]
-type = custom/script
-exec = echo ' '
-exec-if = pgrep -x openvpn
-interval = 5
-format-underline = #268bd2
-format-prefix = VPN
-format-prefix-foreground = #FFFFFF
+[module/launcher]
+type = custom/text
 
-[module/vpn-off]
-type = custom/script
-exec = echo ' '
-exec-if = ! pgrep -x openvpn
-interval = 5
-format-underline = #d28b26
-format-prefix = VPN
-format-prefix-foreground = #5b
+content = 
+
+click-left = /home/adam/bin/launcher
 
 [module/powermenu]
-type = custom/menu
-font-2 = "Noto Sans:size=11;1""
-font-3 = FontAwesome:size=10;0
+type = custom/text
 
-expand-right = true
+content = 
 
-format-spacing = 1
-
-label-open =  Menu
-label-open-foreground = ${colors.secondary}
-label-close =  Close
-label-close-foreground = ${colors.secondary}
-label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = reboot
-menu-0-0-exec = menu-open-1
-menu-0-1 = shutdown
-menu-0-1-exec = menu-open-2
-menu-0-2 = suspend
-menu-0-2-exec = /home/adam/bin/suspend
-menu-0-3 = lock
-menu-0-3-exec = /home/adam/bin/lock
-
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = reboot
-
-menu-2-0 = cancel
-menu-2-0-exec = menu-open-0
-menu-2-1 = shutdown
-menu-2-1-exec = shutdown
-
-
-[module/cmus-time]
-type = custom/script
-
-exec = /home/adam/bin/cmus-time
-exec-if = pgrep -x cmus
-interval = 1
-
-click-left = cmus-remote --seek +5
-click-right = cmus-remote --seek -5
-
-format = <label>
-format-underline = #0a6cf5
-
-[module/cmus-artist]
-type = custom/script
-
-exec = /home/adam/bin/cmus-artist
-exec-if = pgrep -x cmus
-interval = 1
-
-click-left = cmus-remote --pause
-click-right = cmus-remote --next
-
-format = <label>
-format-underline = #0a6cf5
-
-[module/cmus-title]
-type = custom/script
-
-exec = /home/adam/bin/cmus-title
-exec-if = pgrep -x cmus
-interval = 1
-
-click-left = cmus-remote --pause
-click-right = cmus-remote --prev
-
-format = <label>
-format-underline = #0a6cf5
-
-[module/cmus-repeat-on]
-type = custom/script
-
-exec = /home/adam/bin/cmus-repeat
-exec-if = /home/adam/bin/cmus-repeat
-interval = 1
-
-click-left = cmus-remote --repeat
-
-format = Repeat All
-format-underline = #0a6cf5
-
-[module/cmus-repeat-off]
-type = custom/script
-
-exec = /home/adam/bin/cmus-repeat-off
-exec-if = /home/adam/bin/cmus-repeat-off
-interval = 1
-
-click-left = cmus-remote --repeat
-
-format = Repeat All
-format-underline = #d28b26
-format-foreground = #5b
+click-left = /home/adam/bin/powermenu
 
 [settings]
 screenchange-reload = true
