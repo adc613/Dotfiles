@@ -43,6 +43,13 @@ source ~/.config/nvim/config/plugins/elixir.vim
 " source ~/.config/nvim/config/plugins/latex.vim
 " source ~/.config/nvim/config/plugins/solidity.vim
 
+nnoremap coc#float#has_scroll() ? coc#float#scroll(1, 1) : "<C-j>"
+nnoremap coc#float#has_scroll() ? coc#float#scroll(0, 1) : "<C-k>"
+inoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 1)\<cr>" : "\<Right>"
+inoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 1)\<cr>" : "\<Left>"
+vnoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "\<C-f>"
+vnoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "\<C-b>"
+
 "function! DoRemote(arg)
 "UpdateRemotePlugins
 "endfunction
