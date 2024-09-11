@@ -6,7 +6,7 @@ URxvt.keysym.M-l: perl:url-select:select_next
 URxvt.url-select.launcher: /usr/bin/mimeo
 URxvt.url-select.underline: true
 
-!!keyboar-select
+!!!keyboar-select
 URxvt.keysym.M-f: perl:keyboard-select:activate
 URxvt.keyboard-select.clipboard: true
 
@@ -15,11 +15,11 @@ URxvt.keysym.M-v: eval:paste_clipboard
 URxvt.keysym.M-V: eval:paste_primary
 
 URxvt.scrollBar:false
-!! Colorsxdg-open
-urxvt*foreground:white
-urxvt*background:black
+!!! Colorsxdg-open
+urxvt.foreground:white
+urxvt.background:black
 
-URxvt*font:           xft:Inconsolata:size=10
+URxvt.font: xft:Inconsolata:size=12,xft:FontAwesome:size=12
 
 *color0: #2E3436
 *color1: #a40000

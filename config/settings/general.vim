@@ -72,6 +72,10 @@ nnoremap <Leader>fv  :find ~/.config/nvim/config/settings/general.vim<CR>
 nnoremap <Leader>fp  :find ~/.config/nvim/config/plugins/general.vim<CR>
 nnoremap <Leader>f#  :b#<CR>
 
+" scrolling in floating window.
+nnoremap coc#float#has_scroll() ? coc#float#scroll(1, 1) : "<C-j>"
+nnoremap coc#float#has_scroll() ? coc#float#scroll(0, 1) : "<C-k>"
+
 " live substitue
 set inccommand=split
 
