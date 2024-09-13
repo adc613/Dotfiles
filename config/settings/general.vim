@@ -15,11 +15,12 @@ set hlsearch                            " highlights search
 set incsearch                           " searches while typing
 set foldmethod=indent                   " fold code based on indenting level
 set foldlevel=0                         " sets foldlevel to 0, all folds closed
+set conceallevel=1
 
 
 filetype indent on                              " Not sure what this does
 syntax on                                       " Turns on syntax highlighting
-autocmd! bufwritepost *.vim source %         " Auto reloads my vimrc on write
+autocmd! bufwritepost *.vim source ~/.config/nvim/init.vim         " Auto reloads my vimrc on write
 
 set clipboard=unnamed                           " allows me to copy and past outside of terminal
 
@@ -73,8 +74,6 @@ nnoremap <Leader>fp  :find ~/.config/nvim/config/plugins/general.vim<CR>
 nnoremap <Leader>f#  :b#<CR>
 
 " scrolling in floating window.
-nnoremap coc#float#has_scroll() ? coc#float#scroll(1, 1) : "<C-j>"
-nnoremap coc#float#has_scroll() ? coc#float#scroll(0, 1) : "<C-k>"
 
 " live substitue
 set inccommand=split
@@ -94,7 +93,7 @@ onoremap ip( :<C-u>normal! F)vi(<cr>
 " sets colorscheme and uses true colros
 set termguicolors     " enable true colors support
 let ayucolor="dark" 
-colorscheme ayu
+colorscheme catppuccin
 
 set undofile " Maintain undo history between sessions
 set undodir=~/.undo

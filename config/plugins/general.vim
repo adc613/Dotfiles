@@ -21,6 +21,7 @@ Plug 'vim-airline/vim-airline-themes'     " Adds a directory of Airline Themes
 Plug 'honza/vim-snippets'                 " more snippets
 Plug 'junegunn/fzf',  { 'dir': '~/.fzf', 'do': './install --all' } " Fuzy file finder
 Plug 'ayu-theme/ayu-vim'          " a colorscheme
+Plug 'catppuccin/nvim'
 Plug 'mbbill/undotree'                    " A plugin for visualizing VIM's undo/redo tree
 " Plug 'pseewald/vim-anyfold'               " Fold syling
 Plug 'mhinz/vim-signify'                  " Version control visualization
@@ -43,13 +44,6 @@ source ~/.config/nvim/config/plugins/markdown.vim
 source ~/.config/nvim/config/plugins/elixir.vim
 " source ~/.config/nvim/config/plugins/latex.vim
 " source ~/.config/nvim/config/plugins/solidity.vim
-
-nnoremap coc#float#has_scroll() ? coc#float#scroll(1, 1) : "<C-j>"
-nnoremap coc#float#has_scroll() ? coc#float#scroll(0, 1) : "<C-k>"
-inoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1, 1)\<cr>" : "\<Right>"
-inoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0, 1)\<cr>" : "\<Left>"
-vnoremap <silent><nowait><expr> <C-j> coc#float#has_scroll() ? coc#float#scroll(1, 1) : "\<C-f>"
-vnoremap <silent><nowait><expr> <C-k> coc#float#has_scroll() ? coc#float#scroll(0, 1) : "\<C-b>"
 
 "function! DoRemote(arg)
 "UpdateRemotePlugins

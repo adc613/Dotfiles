@@ -2,6 +2,8 @@
 " adc613@gmail.com
 " Welcome to my .vimrc
 
+lua require('init');
+
 " top level settings modules
 source ~/.config/nvim/config/plugins/general.vim
 source ~/.config/nvim/config/settings/general.vim
