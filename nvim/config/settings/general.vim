@@ -13,8 +13,8 @@ set ignorecase                          " ignore case in search
 set smartcase                           " becomes case sensitive once you use a case
 set hlsearch                            " highlights search
 set incsearch                           " searches while typing
-set foldmethod=indent                   " fold code based on indenting level
-set foldlevel=0                         " sets foldlevel to 0, all folds closed
+"set foldmethod=indent                   " fold code based on indenting level
+" set foldlevel=0                         " sets foldlevel to 0, all folds closed
 set conceallevel=2
 
 

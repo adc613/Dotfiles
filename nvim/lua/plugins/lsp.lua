@@ -1,5 +1,61 @@
+local servers = {
+  "lua_ls",
+  --"cssls",
+  --"html",
+  -- "ts_ls",
+  --"jsonls",
+  --"tailwindcss",
+  --"eslint",
+  --"prismals",
+  -- "gopls",
+  --"bashls",
+  --"astro",
+  --"yamlls",
+  -- "dockerls",
+   --"rust_analyzer",
+}
+
+
 return {
-  { "folke/neodev.nvim", opts = {} },
+  {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {
+      library = {
+        -- See the configuration section for more details
+        -- Load luvit types when the `vim.uv` word is found
+        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      },
+    },
+  },
+  { -- optional cmp completion source for require statements and module annotations
+    "hrsh7th/nvim-cmp",
+    opts = function(_, opts)
+      opts.sources = opts.sources or {}
+      table.insert(opts.sources, {
+        name = "lazydev",
+        group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+      })
+    end,
+  },
+  { -- optional blink completion source for require statements and module annotations
+    "saghen/blink.cmp",
+    version = 'v0.*',
+    opts = {
+      sources = {
+        -- add lazydev to your completion providers
+        default = { "lsp", "path", "snippets", "buffer", "lazydev" },
+        providers = {
+          -- dont show LuaLS require statements when lazydev has items
+          --lsp = { fallbacks = { "lazydev" } },
+          lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
+        },
+      },
+    },
+    -- allows extending the providers array elsewhere in your config
+    -- without having to redefine it
+    opts_extend = { "sources.default" }
+  },
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -35,7 +91,6 @@ return {
         return capabilities
       end
 
-      local servers = require("user.languages").servers
       for _, server in pairs(servers) do
         local opts = {
           on_attach = on_attach,
@@ -47,9 +102,9 @@ return {
           opts = vim.tbl_deep_extend("force", settings, opts)
         end
 
-        if server == "lua_ls" then
-          require("neodev").setup {}
-        end
+        --if server == "lua_ls" then
+          --require("neodev").setup {}
+        --end
 
         lspconfig[server].setup(opts)
       end
@@ -81,14 +136,18 @@ return {
 
       vim.diagnostic.config(default_diagnostic_config)
 
-      for _, sign in ipairs(vim.tbl_get(vim.diagnostic.config(), "signs", "values") or {}) do
-        vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
+      local config = vim.diagnostic.config()
+      if config then
+        for _, sign in ipairs(vim.tbl_get(config, "signs", "values") or {}) do
+          vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = sign.name })
+        end
       end
 
       vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
       vim.lsp.handlers["textDocument/signatureHelp"] =
         vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
       require("lspconfig.ui.windows").default_options.border = "rounded"
+      --vim.lsp.set_log_level('debug')
     end,
   },
 }
