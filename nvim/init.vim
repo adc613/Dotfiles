@@ -2,8 +2,6 @@
 " adc613@gmail.com
 " Welcome to my .vimrc
 
-lua require('init');
-
 " top level settings modules
 source ~/.config/nvim/config/plugins/general.vim
 source ~/.config/nvim/config/settings/general.vim
@@ -30,3 +28,5 @@ autocmd FileType python source ~/.config/nvim/config/settings/python.vim
 autocmd FileType javascript source ~/.config/nvim/config/settings/javascript.vim
 autocmd FileType elixir source ~/.config/nvim/config/settings/elixir.vim
 autocmd FileType latex source ~/.config/nvim/config/settings/latex.vim
+
+lua require('init');

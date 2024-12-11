@@ -15,7 +15,7 @@ set hlsearch                            " highlights search
 set incsearch                           " searches while typing
 set foldmethod=indent                   " fold code based on indenting level
 set foldlevel=0                         " sets foldlevel to 0, all folds closed
-set conceallevel=1
+set conceallevel=2
 
 
 filetype indent on                              " Not sure what this does
