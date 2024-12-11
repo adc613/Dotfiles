@@ -1,12 +1,16 @@
 return {
   {
     "nvim-neorg/neorg",
+    lazy = false,
+    version = "*",
     opts = {
       load = {
         ["core.defaults"] = {},
         ["core.concealer"] = {},
         ["core.summary"] = {
-          strategy = "default"
+          config = {
+            strategy = "default",
+          },
         },
         ["core.dirman"] = {
           config = {

@@ -28,6 +28,7 @@ return {
          dashboard.button("d", "  Open dev notes", ":Neorg workspace dev<CR>"),
          dashboard.button("f", "  Find file", ":find "),
          dashboard.button("c", "  Configuration", ":find ~/.config/nvim/init.lua<CR>"),
+         dashboard.button("h", "  CheckHealth", ":checkhealth<CR>"),
          dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
       }
 
