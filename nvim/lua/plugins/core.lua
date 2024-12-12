@@ -28,6 +28,7 @@ return {
  {'godlygeek/tabular'},                  -- Don't know what this is or how it got here
  {
    'simeji/winresizer',
+   lazy = false,
    config = function()
      vim.cmd([[
        let g:winresizer_start_key='<Leader>r'
@@ -37,7 +38,9 @@ return {
  {'vim-scripts/RangeMacro'},             -- Easily applies macro to a range of lines
  {'SirVer/ultisnips'},                   -- Gotta love your snippets
  {'honza/vim-snippets'},                 -- more snippets
- {'ayu-theme/ayu-vim'},                  -- a colorscheme
+ {
+   'ayu-theme/ayu-vim',
+ },                  -- a colorscheme
  {'mbbill/undotree'},                    -- A plugin for visualizing VIM's undo/redo tree
  {'mhinz/vim-signify'},                  -- Version control visualization
  {'jparise/vim-graphql'},                -- GrqphQL highlighting
