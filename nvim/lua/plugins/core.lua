@@ -1,5 +1,4 @@
 return {
- {'catppuccin/nvim'},
  {
    'bling/vim-airline',
    dependencies = {'vim-airline/vim-airline-themes'},
@@ -38,13 +37,9 @@ return {
  {'vim-scripts/RangeMacro'},             -- Easily applies macro to a range of lines
  {'SirVer/ultisnips'},                   -- Gotta love your snippets
  {'honza/vim-snippets'},                 -- more snippets
- {
-   'ayu-theme/ayu-vim',
- },                  -- a colorscheme
  {'mbbill/undotree'},                    -- A plugin for visualizing VIM's undo/redo tree
  {'mhinz/vim-signify'},                  -- Version control visualization
  {'jparise/vim-graphql'},                -- GrqphQL highlighting
-
  -- JavaScript
  {'jelera/vim-javascript-syntax'}, -- JavaScript syntax highlighting
  {'pangloss/vim-javascript'},    -- JavaScript indenting

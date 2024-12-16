@@ -4,7 +4,6 @@
 
 require("user.core")
 require("config.lazy")
-vim.cmd.colorscheme("catppuccin")
 
 vim.cmd('set notimeout')
 vim.opt.encoding='utf-8'

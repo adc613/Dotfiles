@@ -41,14 +41,14 @@ return {
   { -- optional blink completion source for require statements and module annotations
     "saghen/blink.cmp",
     version = 'v0.*',
-    keymap = { preset = 'enter' },
     opts = {
+      keymap = { preset = 'enter' },
       sources = {
         -- add lazydev to your completion providers
         default = { "lsp", "path", "snippets", "buffer", "lazydev" },
         providers = {
           -- dont show LuaLS require statements when lazydev has items
-          --lsp = { fallbacks = { "lazydev" } },
+          lsp = { fallbacks = { "lazydev" } },
           lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
         },
       },

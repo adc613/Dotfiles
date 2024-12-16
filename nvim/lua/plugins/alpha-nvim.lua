@@ -29,6 +29,7 @@ return {
          dashboard.button("f", "  Find file", ":find "),
          dashboard.button("c", "  Configuration", ":find ~/.config/nvim/init.lua<CR>"),
          dashboard.button("h", "  CheckHealth", ":checkhealth<CR>"),
+         dashboard.button("u", "  Update Plugins", ":Lazy update<CR>"),
          dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
       }
 
@@ -44,6 +45,9 @@ return {
 
       dashboard.opts.opts.noautocmd = true
       alpha.setup(dashboard.opts)
+
+      vim.keymap.set('n', '<Leader><space>', ':Alpha<CR>')
+
     end,
   }
 }

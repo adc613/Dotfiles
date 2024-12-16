@@ -29,3 +29,5 @@ vim.keymap.set('n', '<C-p>', ':tabprevious<CR>')
 -- Capitalizes the word that was just written and enters insert mode at the end
 -- of the word
 vim.keymap.set('i','<C-u>', '<esc>hviwUea')
+
+vim.keymap.set('n', '<Leader>%', ':luafile %<CR>')
