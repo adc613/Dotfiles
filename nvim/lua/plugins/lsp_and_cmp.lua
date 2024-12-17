@@ -42,7 +42,7 @@ return {
     "saghen/blink.cmp",
     version = 'v0.*',
     opts = {
-      keymap = { preset = 'enter' },
+      keymap = { preset = 'default' },
       sources = {
         -- add lazydev to your completion providers
         default = { "lsp", "path", "snippets", "buffer", "lazydev" },
