@@ -37,7 +37,12 @@ return {
  {'vim-scripts/RangeMacro'},             -- Easily applies macro to a range of lines
  {'SirVer/ultisnips'},                   -- Gotta love your snippets
  {'honza/vim-snippets'},                 -- more snippets
- {'mbbill/undotree'},                    -- A plugin for visualizing VIM's undo/redo tree
+ {
+   'mbbill/undotree',
+   config = function ()
+    vim.keymap.set('n', '<Leader>u', ':UndotreeToggle<CR>', { desc = "Open undo tree" })
+   end,
+ },                    -- A plugin for visualizing VIM's undo/redo tree
  {'mhinz/vim-signify'},                  -- Version control visualization
  {'jparise/vim-graphql'},                -- GrqphQL highlighting
  -- JavaScript

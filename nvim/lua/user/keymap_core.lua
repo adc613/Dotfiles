@@ -1,8 +1,8 @@
 -- File exploring shortcuts
 vim.keymap.set('n', '<Leader>ft', ':tabnew<cr>:find<space>')
-vim.keymap.set('n', '<Leader>f<space>', ':Explore<cr>')
-vim.keymap.set('n', '<Leader>ff', ':find<space>')
-vim.keymap.set('n', '<Leader>fb', ':ls<CR>:b<space>')
+--vim.keymap.set('n', '<Leader>f<space>', ':Explore<cr>')
+--vim.keymap.set('n', '<Leader>ff', ':find<space>')
+--vim.keymap.set('n', '<Leader>fb', ':ls<CR>:b<space>')
 vim.keymap.set('n', '<Leader>fs', ':vsplit<CR>:find<space>')
 vim.keymap.set('n', '<Leader>fi', ':split<CR>:find<space>')
 vim.keymap.set('n', '<Leader>fv', ':find ~/.config/nvim/config/lua/user/core.lua<CR>')

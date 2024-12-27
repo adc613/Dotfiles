@@ -24,6 +24,11 @@ return {
     },
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
+
+      local vim = vim
+      local opt = vim.opt
+      opt.foldmethod = "expr"
+      opt.foldexpr = "nvim_treesitter#foldexpr()"
     end,
   },
 }

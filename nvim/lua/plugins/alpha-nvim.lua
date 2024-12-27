@@ -23,7 +23,7 @@ return {
       }
 
        dashboard.section.buttons.val = {
-         dashboard.button("n", "  Open scratch notes", ":Neorg workspace scratch<CR>"),
+         dashboard.button("n", "  Open scratch note", ":Neorg workspace scratch<CR>:Neorg journal today<CR>"),
          dashboard.button("s", "  Open services notes", ":Neorg workspace services<CR>"),
          dashboard.button("d", "  Open dev notes", ":Neorg workspace dev<CR>"),
          dashboard.button("f", "  Find file", ":find "),
