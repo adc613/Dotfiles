@@ -9,6 +9,7 @@ M.servers = {
   --"tailwindcss",
   --"eslint",
   --"prismals",
+  "elixirls",
   -- "gopls",
   --"bashls",
   --"astro",
@@ -19,6 +20,7 @@ M.servers = {
 
 M.parsers = {
   "lua",
+  "elixir",
 	--"vim",
   --"markdown",
   --"javascript",

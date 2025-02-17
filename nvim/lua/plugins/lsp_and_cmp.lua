@@ -5,6 +5,7 @@ local servers = {
   -- "ts_ls",
   --"jsonls",
   --"tailwindcss",
+  "elixirls",
   --"eslint",
   --"prismals",
   -- "gopls",
@@ -13,6 +14,20 @@ local servers = {
   --"yamlls",
   -- "dockerls",
    --"rust_analyzer",
+}
+
+local server_opt = {
+  elixirls = {
+    cmd = {"/home/adam/bin/elixir-ls/language_server.sh"},
+    filetypes = {"elixir", "eelixir", "heex", "surface"},
+    root_dir = function(fname)
+      local matches = vim.fs.find({ 'mix.exs' }, { upward = true, limit = 2, path = fname })
+      local child_or_root_path, maybe_umbrella_path = unpack(matches)
+      local root_dir = vim.fs.dirname(maybe_umbrella_path or child_or_root_path)
+
+      return root_dir
+    end
+  },
 }
 
 
@@ -101,6 +116,10 @@ return {
         local require_ok, settings = pcall(require, "user.lspsettings." .. server)
         if require_ok then
           opts = vim.tbl_deep_extend("force", settings, opts)
+        end
+
+        if server_opt[server] then
+          opts = vim.tbl_deep_extend("force", server_opt[server], opts)
         end
 
         --if server == "lua_ls" then

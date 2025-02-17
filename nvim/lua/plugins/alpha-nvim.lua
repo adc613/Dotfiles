@@ -23,14 +23,15 @@ return {
       }
 
        dashboard.section.buttons.val = {
-         dashboard.button("n", "  Open scratch note", ":Neorg workspace scratch<CR>:Neorg journal today<CR>"),
-         dashboard.button("s", "  Open services notes", ":Neorg workspace services<CR>"),
-         dashboard.button("d", "  Open dev notes", ":Neorg workspace dev<CR>"),
-         dashboard.button("f", "  Find file", ":find "),
-         dashboard.button("c", "  Configuration", ":find ~/.config/nvim/init.lua<CR>"),
-         dashboard.button("h", "  CheckHealth", ":checkhealth<CR>"),
-         dashboard.button("u", "  Update Plugins", ":Lazy update<CR>"),
-         dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
+         dashboard.button("n", "Open scratch note", ":Neorg workspace scratch<CR>"),
+         dashboard.button("N", "Quick note", ":Neorg workspace scratch<CR>:Neorg journal today<CR>"),
+         dashboard.button("s", "Open services notes", ":Neorg workspace services<CR>"),
+         dashboard.button("d", "Open dev notes", ":Neorg workspace dev<CR>"),
+         dashboard.button("f", "Open file", ":Oil<CR> "),
+         dashboard.button("l", "Open Leetcode", ":Leet<CR> "),
+         dashboard.button("c", "Configuration", ":find ~/.config/nvim/init.lua<CR>"),
+         dashboard.button("h", "CheckHealth", ":checkhealth<CR>"),
+         dashboard.button("u", "Update Plugins", ":Lazy update<CR>"),
       }
 
       local function footer()

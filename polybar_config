@@ -152,6 +152,7 @@ type = internal/fs
 interval = 25
 
 mount-0 = /
+mount-1 = /mnt/local
 
 label-mounted =  %free%
 label-unmounted = %mountpoint% not mounted

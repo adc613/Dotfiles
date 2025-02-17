@@ -25,15 +25,12 @@ return {
   },
   {
     'stevearc/oil.nvim',
-    ---@module 'oil'
-    ---@type oil.SetupOpts
-    opts = {},
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
-    config = function (_, opts)
-      require('oil').setup(opts)
-
-      vim.keymap.set('n', '<Leader>f<space>', ':Oil<cr>')
-    end
+    lazy = false,
+    keys = {
+      {'<Leader>f<space>', ':Oil<cr>', 'n', desc = 'Open Oil file viewer'},
+    },
+    opts = {},
   },
   {
     'nvim-tree/nvim-tree.lua',
@@ -52,12 +49,15 @@ return {
         dotfiles = true,
       },
     },
+    lazy = false,
+    keys = {
+      {'<leader>fa', ':NvimTreeToggle<CR>', 'n', desc = 'Toggle file tree'},
+      {'<leader>fA', ':NvimTreeFindFileToggle<CR>', 'n', desc = 'Toggle file tree'},
+    },
     config = function (_, opts)
       require('nvim-tree').setup(opts)
       local api = require('nvim-tree.api')
 
-      vim.keymap.set('n', '<leader>fa', ':NvimTreeToggle<CR>', { desc = 'Toggle file tree' })
-      vim.keymap.set('n', '<leader>fA', ':NvimTreeFindFileToggle<CR>', { desc = 'Toggle find file tree' })
       vim.keymap.set('n', '<leader>f?', api.tree.toggle_help, { desc = 'Toggle file tree help' })
     end
   },
