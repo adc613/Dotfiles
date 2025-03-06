@@ -1,7 +1,23 @@
 return {
   {
-    "nvim-neorg/neorg",
-    dependencies = {'nvim-treesitter/nvim-treesitter'},
+    "folke/snacks.nvim",
+    ---@type snacks.Config
+    opts = {
+      image = {
+        -- your image configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    }
+  },
+  {
+    dir = "/home/adam/projects/neorg",
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'benlubas/neorg-conceal-wrap',
+      "nvim-neorg/lua-utils.nvim",
+      "pysan3/pathlib.nvim",
+    },
     lazy = false,
     version = "*",
     config = true,
@@ -9,6 +25,7 @@ return {
       load = {
         ["core.defaults"] = {},
         ["core.concealer"] = {},
+        ["core.export"] = {},
         ["core.summary"] = {
           config = {
             strategy = "default",
@@ -36,6 +53,7 @@ return {
             default_workspace = "scratch",
           },
         },
+        ["external.conceal-wrap"] = {},
       },
     },
   },

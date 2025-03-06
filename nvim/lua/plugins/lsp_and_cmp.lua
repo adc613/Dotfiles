@@ -13,13 +13,13 @@ local servers = {
   --"astro",
   --"yamlls",
   -- "dockerls",
-   --"rust_analyzer",
+  "rust_analyzer",
 }
 
 local server_opt = {
   elixirls = {
-    cmd = {"/home/adam/bin/elixir-ls/language_server.sh"},
-    filetypes = {"elixir", "eelixir", "heex", "surface"},
+    cmd = { "/home/adam/bin/elixir-ls/language_server.sh" },
+    filetypes = { "elixir", "eelixir", "heex", "surface" },
     root_dir = function(fname)
       local matches = vim.fs.find({ 'mix.exs' }, { upward = true, limit = 2, path = fname })
       local child_or_root_path, maybe_umbrella_path = unpack(matches)
@@ -123,7 +123,7 @@ return {
         end
 
         --if server == "lua_ls" then
-          --require("neodev").setup {}
+        --require("neodev").setup {}
         --end
 
         lspconfig[server].setup(opts)
@@ -134,10 +134,10 @@ return {
         signs = {
           active = true,
           values = {
-            { name = "DiagnosticSignError", text = "" },
+            { name = "DiagnosticSignError", text = "" },
             { name = "DiagnosticSignWarn", text = "" },
             { name = "DiagnosticSignHint", text = "" },
-            { name = "DiagnosticSignInfo", text = "" },
+            { name = "DiagnosticSignInfo", text = "" },
           },
         },
         virtual_text = true,
@@ -165,7 +165,7 @@ return {
 
       vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
       vim.lsp.handlers["textDocument/signatureHelp"] =
-        vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+          vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
       require("lspconfig.ui.windows").default_options.border = "rounded"
       --vim.lsp.set_log_level('debug')
     end,

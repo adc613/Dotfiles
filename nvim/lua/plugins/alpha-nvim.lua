@@ -1,41 +1,38 @@
 return {
   {
     'goolord/alpha-nvim',
-    config = function ()
+    config = function()
       local status_ok, alpha = pcall(require, "alpha")
       if not status_ok then
-       return
+        return
       end
 
       local dashboard = require("alpha.themes.dashboard")
       dashboard.section.header.val = {
 
-          [[          ▀████▀▄▄              ▄█ ]],
-          [[            █▀    ▀▀▄▄▄▄▄    ▄▄▀▀█ ]],
-          [[    ▄        █          ▀▀▀▀▄  ▄▀  ]],
-          [[   ▄▀ ▀▄      ▀▄              ▀▄▀  ]],
-          [[  ▄▀    █     █▀   ▄█▀▄      ▄█    ]],
-          [[  ▀▄     ▀▄  █     ▀██▀     ██▄█   ]],
-          [[   ▀▄    ▄▀ █   ▄██▄   ▄  ▄  ▀▀ █  ]],
-          [[    █  ▄▀  █    ▀██▀    ▀▀ ▀▀  ▄▀  ]],
-          [[   █   █  █      ▄▄           ▄▀   ]],
+        [[          ▀████▀▄▄              ▄█ ]],
+        [[            █▀    ▀▀▄▄▄▄▄    ▄▄▀▀█ ]],
+        [[    ▄        █          ▀▀▀▀▄  ▄▀  ]],
+        [[   ▄▀ ▀▄      ▀▄              ▀▄▀  ]],
+        [[  ▄▀    █     █▀   ▄█▀▄      ▄█    ]],
+        [[  ▀▄     ▀▄  █     ▀██▀     ██▄█   ]],
+        [[   ▀▄    ▄▀ █   ▄██▄   ▄  ▄  ▀▀ █  ]],
+        [[    █  ▄▀  █    ▀██▀    ▀▀ ▀▀  ▄▀  ]],
+        [[   █   █  █      ▄▄           ▄▀   ]],
 
       }
 
-       dashboard.section.buttons.val = {
-         dashboard.button("n", "Open scratch note", ":Neorg workspace scratch<CR>"),
-         dashboard.button("N", "Quick note", ":Neorg workspace scratch<CR>:Neorg journal today<CR>"),
-         dashboard.button("s", "Open services notes", ":Neorg workspace services<CR>"),
-         dashboard.button("d", "Open dev notes", ":Neorg workspace dev<CR>"),
-         dashboard.button("f", "Open file", ":Oil<CR> "),
-         dashboard.button("l", "Open Leetcode", ":Leet<CR> "),
-         dashboard.button("c", "Configuration", ":find ~/.config/nvim/init.lua<CR>"),
-         dashboard.button("h", "CheckHealth", ":checkhealth<CR>"),
-         dashboard.button("u", "Update Plugins", ":Lazy update<CR>"),
+      dashboard.section.buttons.val = {
+        dashboard.button("n", "Open scratch note", ":Neorg workspace scratch<CR>"),
+        dashboard.button("s", "Open services notes", ":Neorg workspace services<CR>"),
+        dashboard.button("d", "Open dev notes", ":Neorg workspace dev<CR>"),
+        dashboard.button("l", "Open Leetcode", ":Leet<CR> "),
+        dashboard.button("h", "CheckHealth", ":checkhealth<CR>"),
+        dashboard.button("u", "Update Plugins", ":Lazy update<CR>"),
       }
 
       local function footer()
-       return "Don't Stop Until You are Proud..."
+        return "Don't Stop Until You are Proud..."
       end
 
       dashboard.section.footer.val = footer()
@@ -48,7 +45,6 @@ return {
       alpha.setup(dashboard.opts)
 
       vim.keymap.set('n', '<Leader><space>', ':Alpha<CR>')
-
     end,
   }
 }

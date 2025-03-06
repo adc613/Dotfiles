@@ -5,10 +5,17 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function(_, opts)
       local builtin = require('telescope.builtin')
+      local find_notes = function()
+        return builtin.find_files({ cwd = "~/notes/" })
+      end
+
       vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
       vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
       vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+      vim.keymap.set('n', 'X', builtin.spell_suggest, { desc = 'Telescope Spell suggest' })
+      vim.keymap.set('n', '<leader>?', builtin.keymaps, { desc = 'Find keymaps' })
+      vim.keymap.set('n', '<leader>fn', find_notes, { desc = 'Telescope find notes' })
 
       require('telescope').setup(opts)
     end,
@@ -28,7 +35,7 @@ return {
     dependencies = { { "echasnovski/mini.icons", opts = {} } },
     lazy = false,
     keys = {
-      {'<Leader>f<space>', ':Oil<cr>', 'n', desc = 'Open Oil file viewer'},
+      { '<Leader>f<space>', ':Oil<cr>', 'n', desc = 'Open full page file viewer' },
     },
     opts = {},
   },
@@ -51,10 +58,10 @@ return {
     },
     lazy = false,
     keys = {
-      {'<leader>fa', ':NvimTreeToggle<CR>', 'n', desc = 'Toggle file tree'},
-      {'<leader>fA', ':NvimTreeFindFileToggle<CR>', 'n', desc = 'Toggle file tree'},
+      { '<leader>fa', ':NvimTreeToggle<CR>',         'n', desc = 'Toggle file tree' },
+      { '<leader>fA', ':NvimTreeFindFileToggle<CR>', 'n', desc = 'Toggle file tree and open at current file' },
     },
-    config = function (_, opts)
+    config = function(_, opts)
       require('nvim-tree').setup(opts)
       local api = require('nvim-tree.api')
 
