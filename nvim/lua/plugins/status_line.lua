@@ -42,7 +42,7 @@ return {
           {
             'filetype',
             icon_only = true,
-            colored = true
+            colored = false
           },
         },
       },
