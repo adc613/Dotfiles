@@ -9,13 +9,18 @@ return {
         return builtin.find_files({ cwd = "~/notes/" })
       end
 
+      local find_config = function()
+        return builtin.find_files({ cwd = "~/.config/nvim/" })
+      end
+
       vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
       vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
       vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-      vim.keymap.set('n', 'X', builtin.spell_suggest, { desc = 'Telescope Spell suggest' })
+      vim.keymap.set('n', 'z=', builtin.spell_suggest, { desc = 'Telescope Spell suggest' })
       vim.keymap.set('n', '<leader>?', builtin.keymaps, { desc = 'Find keymaps' })
       vim.keymap.set('n', '<leader>fn', find_notes, { desc = 'Telescope find notes' })
+      vim.keymap.set('n', '<leader>fp', find_config, { desc = 'Telescope find notes' })
 
       require('telescope').setup(opts)
     end,
@@ -63,8 +68,8 @@ return {
     },
     config = function(_, opts)
       require('nvim-tree').setup(opts)
-      local api = require('nvim-tree.api')
 
+      local api = require('nvim-tree.api')
       vim.keymap.set('n', '<leader>f?', api.tree.toggle_help, { desc = 'Toggle file tree help' })
     end
   },

@@ -2,7 +2,7 @@ local servers = {
   "lua_ls",
   --"cssls",
   --"html",
-  -- "ts_ls",
+  "ts_ls",
   --"jsonls",
   --"tailwindcss",
   "elixirls",
@@ -32,6 +32,17 @@ local server_opt = {
 
 
 return {
+  {
+    "hedyhli/outline.nvim",
+    lazy = true,
+    cmd = { "Outline", "OutlineOpen" },
+    opts = {
+      position = "left",
+    },
+    keys = {
+      { "<leader>lo", "<cmd>Outline<CR>", desc = "Toggle Outline", }
+    },
+  },
   {
     "folke/lazydev.nvim",
     ft = "lua", -- only load on lua files

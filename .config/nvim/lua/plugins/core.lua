@@ -31,4 +31,31 @@ return {
   { 'pangloss/vim-javascript' },         -- JavaScript indenting
   { 'isRuslan/vim-es6' },                -- ES6 highlighting
   { 'nathanaelkane/vim-indent-guides' }, -- Indenting
+  {
+    "danymat/neogen",
+    opts = {
+      enabled = true,
+      languages = {
+        lua = {
+          template = {
+            annotation_convention = "emmylua",
+          }
+        },
+      }
+    },
+    config = function(opts)
+      vim.api.nvim_set_keymap("n", "<Leader>dc", ":lua require('neogen').generate({ type = 'class' })<CR>",
+        { noremap = true, silent = true, desc = "Generate class comments" })
+      vim.api.nvim_set_keymap("n", "<Leader>df", ":lua require('neogen').generate({ type = 'func' })<CR>",
+        { noremap = true, silent = true, desc = "Generate function comments" })
+      vim.api.nvim_set_keymap("n", "<Leader>dt", ":lua require('neogen').generate({ type = 'type' })<CR>",
+        { noremap = true, silent = true, desc = "Generate type comments" })
+      vim.api.nvim_set_keymap("n", "<Leader>dF", ":lua require('neogen').generate({ type = 'file' })<CR>",
+        { noremap = true, silent = true, desc = "Generate file comments" })
+
+      require('neogen').setup(opts)
+    end,
+    -- Uncomment next line if you want to follow only stable versions
+    -- version = "*"
+  }
 }

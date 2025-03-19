@@ -49,6 +49,7 @@ return {
               logs = "~/notes/logs",
               services = "~/notes/services/",
               dev = "~/notes/dev/",
+              blog = "~/notes/blog/",
             },
             default_workspace = "scratch",
           },
