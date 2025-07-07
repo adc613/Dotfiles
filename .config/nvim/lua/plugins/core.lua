@@ -23,8 +23,14 @@ return {
     config = function()
       vim.keymap.set('n', '<Leader>u', ':UndotreeToggle<CR>', { desc = "Open undo tree" })
     end,
-  },                                     -- A plugin for visualizing VIM's undo/redo tree
-  { 'mhinz/vim-signify' },               -- Version control visualization
+  }, -- A plugin for visualizing VIM's undo/redo tree
+  {
+    'mhinz/vim-signify',
+    cmd = { "SignifyToggle" },
+    keys = {
+      { "<leader>gs", "<cmd>SignifyToggle<CR>", desc = "Toggle Outline", }
+    },
+  },                                     -- Version control visualization
   { 'jparise/vim-graphql' },             -- GrqphQL highlighting
   -- JavaScript
   { 'jelera/vim-javascript-syntax' },    -- JavaScript syntax highlighting

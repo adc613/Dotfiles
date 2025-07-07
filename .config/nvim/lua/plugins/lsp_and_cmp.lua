@@ -13,6 +13,7 @@ local servers = {
   --"astro",
   --"yamlls",
   -- "dockerls",
+  "pyright",
   "rust_analyzer",
 }
 
@@ -28,6 +29,10 @@ local server_opt = {
       return root_dir
     end
   },
+  --pyright = {
+  --cmd = { "/home/adam/.local/bin/pyright" },
+  --filetypes = { "python" },
+  --},
 }
 
 
@@ -66,7 +71,7 @@ return {
   },
   { -- optional blink completion source for require statements and module annotations
     "saghen/blink.cmp",
-    version = 'v0.*',
+    version = 'v1.*',
     opts = {
       keymap = { preset = 'default' },
       sources = {
@@ -90,24 +95,43 @@ return {
 
       -- diagnostic config
       vim.diagnostic.config {
-        virtual_text = true,
+        virtual_text = {
+          current_line = true,
+        },
         update_in_insert = false,
         underline = true,
+        signs = true,
       }
+
+      local toggle_virtual_text_flag = true
+      local function toggle_virtual_text()
+        if toggle_virtual_text_flag then
+          vim.diagnostic.config({
+            virtual_lines = { current_line = true },
+            virtual_text = false,
+            signs = true,
+          })
+        else
+          vim.diagnostic.config({
+            virtual_lines = false,
+            virtual_text = { current_line = true },
+            signs = true,
+          })
+        end
+
+        toggle_virtual_text_flag = not toggle_virtual_text_flag
+      end
 
       local on_attach = function(_, bufnr)
         local opts = { noremap = true, silent = true, buffer = bufnr }
         local keymap = vim.keymap.set
         keymap("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
         keymap("n", "gD", "<cmd>Telescope lsp_type_definitions<CR>", opts)
-        keymap("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-        keymap("n", "gI", "<cmd>Telescope lsp_implementations<CR>", opts)
+        keymap("n", "grr", "<cmd>Telescope lsp_references<CR>", opts)
+        keymap("n", "gri", "<cmd>Telescope lsp_implementations<CR>", opts)
         keymap("n", "K", vim.lsp.buf.hover, opts)
         keymap("n", "gl", vim.diagnostic.open_float, opts)
-        keymap("n", "]d", vim.diagnostic.goto_next, opts)
-        keymap("n", "[d", vim.diagnostic.goto_prev, opts)
-        keymap("n", "<leader>la", vim.lsp.buf.code_action, opts)
-        keymap("n", "<leader>lr", vim.lsp.buf.rename, opts)
+        keymap("n", "gL", toggle_virtual_text, opts)
         keymap("n", "<leader>ls", vim.lsp.buf.signature_help, opts)
         keymap("n", "<leader>li", "<cmd>LspInfo<CR>", opts)
       end
@@ -151,7 +175,7 @@ return {
             { name = "DiagnosticSignInfo", text = "" },
           },
         },
-        virtual_text = true,
+        --virtual_text = true,
         update_in_insert = false,
         underline = true,
         severity_sort = true,
@@ -174,9 +198,6 @@ return {
         end
       end
 
-      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-      vim.lsp.handlers["textDocument/signatureHelp"] =
-          vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
       require("lspconfig.ui.windows").default_options.border = "rounded"
       --vim.lsp.set_log_level('debug')
     end,

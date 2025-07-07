@@ -10,7 +10,14 @@ return {
       }
     }
   },
+  --{
+  --dir = "/home/adam/projects/ghost_plugin",
+  --opts = {
+  --test = "Hello world",
+  --},
+  --},
   {
+    --'nvim-neorg/neorg',
     dir = "/home/adam/projects/neorg",
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
@@ -21,6 +28,10 @@ return {
     lazy = false,
     version = "*",
     config = true,
+    keys = {
+      { '<Leader>nw', ':Neorg workspace ', 'n', desc = 'Open neorg workspace' },
+      { '<Leader>nj', ':Neorg journal ',   'n', desc = 'Open neorg journal' },
+    },
     opts = {
       load = {
         ["core.defaults"] = {},
@@ -50,6 +61,7 @@ return {
               services = "~/notes/services/",
               dev = "~/notes/dev/",
               blog = "~/notes/blog/",
+              life = "~/notes/life/",
             },
             default_workspace = "scratch",
           },

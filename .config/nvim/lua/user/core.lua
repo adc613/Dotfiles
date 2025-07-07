@@ -38,3 +38,19 @@ vim.o.undodir = '/home/adam/.undo'
 vim.o.spellfile = '/home/adam/.config/nvim/en.utf-8.add'
 vim.o.spelllang = 'en'
 vim.o.spell = true
+
+vim.o.winborder = 'rounded'
+vim.o.winblend = 0
+-- [ink](https://github.com/nvim-telescope/telescope.nvim/issues/3436#issuecomment-2756267300)
+vim.api.nvim_create_autocmd("User", {
+  pattern = "TelescopeFindPre",
+  callback = function()
+    vim.opt_local.winborder = "none"
+    vim.api.nvim_create_autocmd("WinLeave", {
+      once = true,
+      callback = function()
+        vim.opt_local.winborder = "rounded"
+      end,
+    })
+  end,
+})
