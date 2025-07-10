@@ -2,36 +2,23 @@ Welcome to my Dotfiles.
 
 # Included configuration files
   - [Tmux](https://hackernoon.com/a-gentle-introduction-to-tmux-8d784c404340)
-  - [Neovim (VIM but slightly better)](https://neovim.io/)
+  - [Neovim](https://neovim.io/)
   - [Polybar](https://github.com/jaagr/polybar)
-  - [Compton](https://github.com/chjj/compton)
 
 # VIM
 
-  I use [neovim](https://neovim.io/), so they're might be a few things in my
-  [.vimrc](init.vim) that aren't compatible with
-  vanilla VIM. Also my .vimrc is named init.vim.
-
-  I made my [init.vim](init.vim) file modular,
-  maybe too module. A lot of the configuration lives in the [configs/](config)
+  - My neovim set up is now all lua and LazyVim. One day I may look back at this
+    README and think that's outdated.
 
 # Install scripts [installs/](installs)
 
-  I try to write install scripts for some of my favorite Linux tools. These
-  files may not be up to date. Proceed with caution.
+  ~I try to write install scripts for some of my favorite Linux tools. These
+  files may not be up to date. Proceed with caution.~
+  These files are very out dated. They may or not work.
 
-# Terminal [Urxvt](https://wiki.archlinux.org/index.php/Rxvt-unicode)
-  
-  I use Urxvt, the terminal settings are in my [.Xresources](.Xresources) file.
 
 # Vanilla settings (deprecated) [vanilla_settings/](vanilla_settings)
   
   Basic settings that don't rely on plugins, useful for quickly setting up a
-  new server, but I haven't updated or use them in a long time.
+  new server.
 
-# OS of choice
-  
-  For personal use. I'm a sucker of [Arch Linux](https://www.archlinux.org/)
-
-  ### Latest desktop screenshot:
-  ![Screenshot of my desktop](desktop.png)
