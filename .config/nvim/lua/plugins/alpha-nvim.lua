@@ -23,19 +23,10 @@ return {
       }
 
       dashboard.section.buttons.val = {
-        dashboard.button("n", "Open scratch note", ":Neorg workspace scratch<CR>"),
-        dashboard.button("s", "Open services notes", ":Neorg workspace services<CR>"),
-        dashboard.button("d", "Open dev notes", ":Neorg workspace dev<CR>"),
         dashboard.button("l", "Open Leetcode", ":Leet<CR> "),
         dashboard.button("h", "CheckHealth", ":checkhealth<CR>"),
         dashboard.button("u", "Update Plugins", ":Lazy update<CR>"),
       }
-
-      local function footer()
-        return "Don't Stop Until You are Proud..."
-      end
-
-      dashboard.section.footer.val = footer()
 
       dashboard.section.footer.opts.hl = "Type"
       dashboard.section.header.opts.hl = "Include"
