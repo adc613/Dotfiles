@@ -171,8 +171,8 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 
 exec xcape -e "Control_L=Escape"
-exec_always kill $(ps -A | grep polybar | awk '{print $1}')
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+#exec_always kill $(ps -A | grep polybar | awk '{print $1}')
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 #exec_always --no-startup-id compton -b --config ~/.config/compton/compton.conf
 #exec_always --no-startup-id xautolock -detectsleep -time 10 -locker /home/adam/bin/lock -corners ----
 # Lock after X seconds
