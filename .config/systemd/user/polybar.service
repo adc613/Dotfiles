@@ -1,7 +1,7 @@
 [Unit]
 Description=Service for managing polybar
-PartOf=graphical-session.target
 StartLimitIntervalSec=0
+After=default.target
 
 [Service]
 Type=simple
@@ -11,5 +11,5 @@ ExecStart=/home/adam/.config/polybar/launch.sh
 RemainAfterExit=yes
 
 [Install]
-WantedBy=graphical-session.target
+WantedBy=default.target
 

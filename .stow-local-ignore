@@ -1,6 +1,6 @@
-.git/
+.git/*
 .gitignore
 
-vanilla_settings/
+vanilla_settings/*
 
 README.md
