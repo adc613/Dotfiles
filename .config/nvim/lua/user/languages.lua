@@ -15,13 +15,13 @@ M.servers = {
   --"astro",
   --"yamlls",
   -- "dockerls",
-   "rust_analyzer",
+  "rust_analyzer",
 }
 
 M.parsers = {
   "lua",
   "elixir",
-	--"vim",
+  --"vim",
   --"markdown",
   --"javascript",
   --"typescript",

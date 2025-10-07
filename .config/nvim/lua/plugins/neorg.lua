@@ -17,8 +17,8 @@ return {
   --},
   --},
   {
-    --'nvim-neorg/neorg',
-    dir = "/home/adam/projects/neorg",
+    'nvim-neorg/neorg',
+    --dir = "/home/adam/projects/neorg",
     dependencies = {
       'nvim-treesitter/nvim-treesitter',
       'benlubas/neorg-conceal-wrap',
